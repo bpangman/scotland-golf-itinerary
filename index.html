@@ -464,12 +464,66 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 600px) {
+      /* Hero */
+      .hero-content { padding: 2rem 1.25rem 3rem; }
+      .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+      .hero-flag { font-size: 1.6rem; }
+      .hero-sub { font-size: 1rem; }
+
+      /* Nav */
+      nav a { padding: 0.8rem 0.9rem; font-size: 0.75rem; min-height: 44px; display: inline-flex; align-items: center; }
+
+      /* Day cards */
       .day-header { flex-wrap: wrap; }
-      .day-date { width: 100%; }
+      .day-date { width: 100%; margin-top: 0.25rem; }
+      .day-body { padding: 1rem 1rem; }
+      .event-time { min-width: 64px; font-size: 0.78rem; }
+
+      /* Countdown */
       .countdown-numbers { gap: 1rem; }
       .countdown-unit .num { font-size: 2rem; }
-      nav a { padding: 0.8rem 0.9rem; font-size: 0.75rem; }
+
+      /* Course grid: single column */
+      .course-grid { grid-template-columns: 1fr; }
+      .course-card { display: flex; flex-direction: column; }
+      .course-img { width: 100%; height: 160px; max-width: 100%; }
+
+      /* Logistics grid: single column */
+      .logistics-grid { grid-template-columns: 1fr; }
+
+      /* Checklist grid: single column */
+      .checklist-grid { grid-template-columns: 1fr; }
+
+      /* Glance grid: 2 cols minimum */
+      .glance-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Airport map link — make it a big tappable button */
+      a[href$=".pdf"] {
+        display: inline-block;
+        padding: 0.6rem 1rem;
+        background: rgba(90,158,92,0.2);
+        border: 1px solid #5a9e5c;
+        border-radius: 6px;
+        margin-top: 0.5rem;
+        min-height: 44px;
+        line-height: 1.8;
+      }
+
+      /* General tap target sizing for anchors in logistics/note boxes */
+      .logistics-card a, .note-box a {
+        display: inline-block;
+        min-height: 44px;
+        line-height: 2;
+        padding: 0 0.25rem;
+      }
     }
+
+    /* Body text min 16px to prevent iOS auto-zoom */
+    body { font-size: 16px; }
+    .event-list li { font-size: 0.93rem; }
+
+    /* Ensure images never overflow */
+    img { max-width: 100%; height: auto; }
   </style>
 </head>
 <body>
@@ -478,12 +532,18 @@
 <section class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-flag">&#127988;&#xFE0F; Scotland &#9975; 2026</div>
+    <div class="hero-flag">
+      <svg viewBox="0 0 60 36" width="40" height="24" style="vertical-align:middle; margin-right:0.5em; border:1px solid rgba(255,255,255,0.3);" xmlns="http://www.w3.org/2000/svg">
+        <rect width="60" height="36" fill="#005EB8"/>
+        <path d="M0,0 L60,36 M60,0 L0,36" stroke="white" stroke-width="6"/>
+      </svg>
+      Scotland &#9971; 2026
+    </div>
     <h1>The Golf Trip<br />of a Lifetime</h1>
     <p class="hero-sub">Links golf. Ancient history. Unforgettable fairways. Let&rsquo;s go.</p>
     <div class="hero-badges">
       <span class="badge">&#128197; June 14&ndash;21, 2026</span>
-      <span class="badge">&#9975; 8 Rounds &bull; 8 Golfers</span>
+      <span class="badge">&#9971; 8 Rounds &bull; 8 Golfers</span>
       <span class="badge">&#128205; Ayrshire &rarr; St. Andrews</span>
       <span class="badge">&#127922; Old Course Ballot (fingers crossed)</span>
     </div>
@@ -557,7 +617,7 @@
     <div class="day-card">
       <div class="day-header">
         <span class="day-label">Day 1</span>
-        <span class="day-title">Arrive Edinburgh &rarr; Turnberry &rarr; Prestwick &#9975;</span>
+        <span class="day-title">Arrive Edinburgh &rarr; Turnberry &rarr; Prestwick &#9971;</span>
         <span class="day-date">Sun, Jun 14</span>
       </div>
       <div class="day-body">
@@ -592,7 +652,7 @@
     <div class="day-card">
       <div class="day-header">
         <span class="day-label">Day 2</span>
-        <span class="day-title">Royal Troon &#9975;</span>
+        <span class="day-title">Royal Troon &#9971;</span>
         <span class="day-date">Mon, Jun 15</span>
       </div>
       <div class="day-body">
@@ -622,7 +682,7 @@
     <div class="day-card">
       <div class="day-header">
         <span class="day-label">Day 3</span>
-        <span class="day-title">Turnberry Ailsa Course &rarr; St. Andrews &#9975;</span>
+        <span class="day-title">Turnberry Ailsa Course &rarr; St. Andrews &#9971;</span>
         <span class="day-date">Tue, Jun 16</span>
       </div>
       <div class="day-body">
@@ -657,7 +717,7 @@
     <div class="day-card">
       <div class="day-header">
         <span class="day-label">Day 4</span>
-        <span class="day-title">Golf House Club, Elie &#9975;</span>
+        <span class="day-title">Golf House Club, Elie &#9971;</span>
         <span class="day-date">Wed, Jun 17</span>
       </div>
       <div class="day-body">
@@ -691,7 +751,7 @@
     <div class="day-card">
       <div class="day-header">
         <span class="day-label">Day 5</span>
-        <span class="day-title">St. Andrews Jubilee Course &#9975;</span>
+        <span class="day-title">St. Andrews Jubilee Course &#9971;</span>
         <span class="day-date">Thu, Jun 18</span>
       </div>
       <div class="day-body">
@@ -710,7 +770,7 @@
             <span><span class="tag tag-hotel">Hotel</span> Greyfriars / Lorimer House / Nethan</span>
           </li>
         </ul>
-        <div class="note-box">&#9975; The Jubilee sits wedged between the sea and the New Course. Elevated tees give unparalleled views across St Andrews Bay. No shared greens or fairways &mdash; every hole stands on its own.</div>
+        <div class="note-box">&#9971; The Jubilee sits wedged between the sea and the New Course. Elevated tees give unparalleled views across St Andrews Bay. No shared greens or fairways &mdash; every hole stands on its own.</div>
       </div>
     </div>
 
@@ -718,7 +778,7 @@
     <div class="day-card">
       <div class="day-header">
         <span class="day-label">Day 6</span>
-        <span class="day-title">Old Course Ballot &amp; Lundin Golf Club &#9975;</span>
+        <span class="day-title">Old Course Ballot &amp; Lundin Golf Club &#9971;</span>
         <span class="day-date">Fri, Jun 19</span>
       </div>
       <div class="day-body">
@@ -753,7 +813,7 @@
     <div class="day-card">
       <div class="day-header">
         <span class="day-label">Day 7</span>
-        <span class="day-title">Dumbarnie Links &#9975;</span>
+        <span class="day-title">Dumbarnie Links &#9971;</span>
         <span class="day-date">Sat, Jun 20</span>
       </div>
       <div class="day-body">
@@ -1013,7 +1073,7 @@
       </div>
 
       <div class="logistics-card">
-        <h3>&#9975; Old Course Ballot</h3>
+        <h3>&#9971; Old Course Ballot</h3>
         <ul>
           <li><span class="li-dot">&#9658;</span> Daily lottery operated by St. Andrews Links Trust</li>
           <li><span class="li-dot">&#9658;</span> Draw happens the evening before the desired round</li>
@@ -1084,7 +1144,7 @@
 </div><!-- /container -->
 
 <footer>
-  <p>&#9975; Scotland Golf 2026 &mdash; June 14&ndash;21. Party of 8. Organized by <a href="https://www.hiddenlinksgolf.com" target="_blank">Hidden Links Golf</a>.</p>
+  <p>&#9971; Scotland Golf 2026 &mdash; June 14&ndash;21. Party of 8. Organized by <a href="https://www.hiddenlinksgolf.com" target="_blank">Hidden Links Golf</a>.</p>
   <p>Prestwick &bull; Royal Troon &bull; Turnberry Ailsa &bull; Elie &bull; St. Andrews Jubilee &bull; Lundin Links &bull; Dumbarnie &bull; Old Course (ballot)</p>
   <p style="margin-top:1rem; font-size:0.7rem; color:#3a5e3b;">
     Photos: Wikimedia Commons &mdash; CC-BY-SA 2.0/4.0 &amp; GFDL licenses. St Andrews hero: Bahnfrend (CC-BY-SA 4.0) &bull; Lundin: Richard Webb (CC-BY-SA 2.0)
