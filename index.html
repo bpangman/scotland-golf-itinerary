@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scotland Golf 2026 &#x26F3;</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #0e1b0f;
+      color: #e8e0d0;
+      line-height: 1.7;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/st_andrews_hero.jpg') center center / cover no-repeat;
+      filter: brightness(0.55);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 3rem 2rem 4rem;
+      max-width: 800px;
+    }
+    .hero-flag {
+      font-size: 2.4rem;
+      letter-spacing: 0.08em;
+      color: #c8e6c9;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      text-shadow: 0 3px 16px rgba(0,0,0,0.8);
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: #c8e6c9;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      backdrop-filter: blur(4px);
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 2rem;
+      z-index: 1;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      text-align: center;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(14,27,15,0.97);
+      border-bottom: 1px solid #2d4a2e;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    nav a {
+      color: #a5c8a6;
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.9rem 1.1rem;
+      white-space: nowrap;
+      transition: color 0.2s, border-bottom 0.2s;
+      border-bottom: 3px solid transparent;
+    }
+    nav a:hover { color: #fff; border-bottom-color: #5a9e5c; }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-header {
+      padding: 4rem 0 2rem;
+      text-align: center;
+    }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: #7ec87f;
+      margin-bottom: 0.5rem;
+    }
+    .section-header p {
+      color: #a8bfa9;
+      font-style: italic;
+      font-size: 1rem;
+    }
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #3a6e3c, #7ec87f, #3a6e3c);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    /* ===== TRIP AT A GLANCE ===== */
+    .glance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .glance-card {
+      background: #162718;
+      border: 1px solid #2d4a2e;
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .glance-number {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #7ec87f;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .glance-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #8aab8b;
+    }
+
+    /* ===== COUNTDOWN ===== */
+    .countdown-bar {
+      background: linear-gradient(135deg, #162718, #1e3820);
+      border: 1px solid #3a6e3c;
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .countdown-bar h3 {
+      color: #7ec87f;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .countdown-numbers {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .countdown-unit {
+      text-align: center;
+    }
+    .countdown-unit .num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      display: block;
+    }
+    .countdown-unit .lbl {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #8aab8b;
+    }
+
+    /* ===== ITINERARY DAYS ===== */
+    .day-card {
+      background: #162718;
+      border: 1px solid #2d4a2e;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+    .day-header {
+      background: linear-gradient(135deg, #1e3820, #2a4f2c);
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .day-label {
+      background: #3a6e3c;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .day-title {
+      flex: 1;
+      font-size: 1.05rem;
+      color: #c8e6c9;
+      font-weight: 700;
+    }
+    .day-date {
+      font-size: 0.82rem;
+      color: #8aab8b;
+      white-space: nowrap;
+    }
+    .day-body {
+      padding: 1.25rem 1.5rem;
+    }
+    .day-body p {
+      color: #c8d9c9;
+      margin-bottom: 0.75rem;
+    }
+    .event-list {
+      list-style: none;
+      margin: 0.5rem 0 1rem;
+    }
+    .event-list li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.93rem;
+      color: #c8d9c9;
+    }
+    .event-list li:last-child { border-bottom: none; }
+    .event-time {
+      color: #7ec87f;
+      font-weight: 700;
+      white-space: nowrap;
+      min-width: 80px;
+      font-size: 0.85rem;
+    }
+    .tag-golf     { background: #1a4a1c; color: #7ec87f; }
+    .tag-hotel    { background: #1a2e4a; color: #7eb8e8; }
+    .tag-travel   { background: #4a3a1a; color: #e8c87e; }
+    .tag-dinner   { background: #4a1a2e; color: #e87eb8; }
+    .tag-explore  { background: #2e1a4a; color: #b87ee8; }
+    .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.4rem;
+      white-space: nowrap;
+    }
+    .note-box {
+      background: rgba(90,158,92,0.1);
+      border-left: 3px solid #5a9e5c;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem;
+      color: #a8d4a9;
+    }
+
+    /* ===== COURSES ===== */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .course-card {
+      background: #162718;
+      border: 1px solid #2d4a2e;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .course-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .course-body {
+      padding: 1.1rem 1.25rem;
+    }
+    .course-badge {
+      display: inline-block;
+      background: #3a6e3c;
+      color: #c8e6c9;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+    .course-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #e8e0d0;
+      margin-bottom: 0.25rem;
+    }
+    .course-location {
+      font-size: 0.8rem;
+      color: #8aab8b;
+      margin-bottom: 0.75rem;
+    }
+    .course-desc {
+      font-size: 0.88rem;
+      color: #b8ccb9;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .course-fact {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: #8aab8b;
+      margin-bottom: 0.25rem;
+    }
+    .course-fact-icon { color: #5a9e5c; }
+    .course-photo-credit {
+      font-size: 0.65rem;
+      color: #4a6e4b;
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    /* ===== LOGISTICS ===== */
+    .logistics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+    .logistics-card {
+      background: #162718;
+      border: 1px solid #2d4a2e;
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .logistics-card h3 {
+      color: #7ec87f;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .logistics-card ul {
+      list-style: none;
+    }
+    .logistics-card li {
+      font-size: 0.88rem;
+      color: #b8ccb9;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      gap: 0.5rem;
+    }
+    .logistics-card li:last-child { border-bottom: none; }
+    .li-dot { color: #5a9e5c; flex-shrink: 0; }
+
+    /* ===== PRE-TRIP CHECKLIST ===== */
+    .checklist {
+      background: #162718;
+      border: 1px solid #2d4a2e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .checklist h3 {
+      color: #7ec87f;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.5rem;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: #b8ccb9;
+      padding: 0.3rem;
+    }
+    .check-box {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #3a6e3c;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .check-box:hover { background: #3a6e3c; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0a150b;
+      border-top: 1px solid #1a2e1b;
+      text-align: center;
+      padding: 2.5rem 1.25rem;
+      font-size: 0.78rem;
+      color: #4a6e4b;
+    }
+    footer p { margin-bottom: 0.4rem; }
+    footer a { color: #5a9e5c; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .day-header { flex-wrap: wrap; }
+      .day-date { width: 100%; }
+      .countdown-numbers { gap: 1rem; }
+      .countdown-unit .num { font-size: 2rem; }
+      nav a { padding: 0.8rem 0.9rem; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-flag">&#127988;&#xFE0F; Scotland &#9975; 2026</div>
+    <h1>The Golf Trip<br />of a Lifetime</h1>
+    <p class="hero-sub">Links golf. Ancient history. Unforgettable fairways. Let's go.</p>
+    <div class="hero-badges">
+      <span class="badge">&#128197; June 13&ndash;22, 2026</span>
+      <span class="badge">&#9975; 4+ Championship Courses</span>
+      <span class="badge">&#128205; Fife &amp; St. Andrews</span>
+      <span class="badge">&#127762; Old Course Ballot TBD</span>
+    </div>
+  </div>
+  <div class="scroll-hint">scroll down &#8595;</div>
+</section>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="#glance">Overview</a>
+  <a href="#itinerary">Itinerary</a>
+  <a href="#courses">Courses</a>
+  <a href="#logistics">Logistics</a>
+  <a href="#checklist">Checklist</a>
+</nav>
+
+<div class="container">
+
+  <!-- ===== AT A GLANCE ===== -->
+  <section id="glance">
+    <div class="section-header">
+      <h2>Trip at a Glance</h2>
+      <div class="divider"></div>
+      <p>Everything you need to know before you pack your sticks</p>
+    </div>
+
+    <div class="glance-grid">
+      <div class="glance-card">
+        <div class="glance-number">9</div>
+        <div class="glance-label">Days in Scotland</div>
+      </div>
+      <div class="glance-card">
+        <div class="glance-number">4+</div>
+        <div class="glance-label">Golf Courses</div>
+      </div>
+      <div class="glance-card">
+        <div class="glance-number">TBD</div>
+        <div class="glance-label">Old Course Ballot</div>
+      </div>
+      <div class="glance-card">
+        <div class="glance-number">St. Andrews</div>
+        <div class="glance-label">Home Base</div>
+      </div>
+      <div class="glance-card">
+        <div class="glance-number">8</div>
+        <div class="glance-label">Fellow Golfers</div>
+      </div>
+    </div>
+
+    <!-- Countdown timer -->
+    <div class="countdown-bar">
+      <h3>&#8987; Countdown to Tee-Off</h3>
+      <div class="countdown-numbers" id="countdown">
+        <div class="countdown-unit"><span class="num" id="cd-days">--</span><span class="lbl">Days</span></div>
+        <div class="countdown-unit"><span class="num" id="cd-hours">--</span><span class="lbl">Hours</span></div>
+        <div class="countdown-unit"><span class="num" id="cd-mins">--</span><span class="lbl">Minutes</span></div>
+        <div class="countdown-unit"><span class="num" id="cd-secs">--</span><span class="lbl">Seconds</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ITINERARY ===== -->
+  <section id="itinerary">
+    <div class="section-header">
+      <h2>Day-by-Day Itinerary</h2>
+      <div class="divider"></div>
+      <p>Departure est. June 13. Exact tee times and confirmation numbers to be added once finalized.</p>
+    </div>
+
+    <!-- Day 1: Fly Out -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-label">Day 1</span>
+        <span class="day-title">Wheels Up &#9992;&#65039;</span>
+        <span class="day-date">Sat, Jun 13</span>
+      </div>
+      <div class="day-body">
+        <p>The adventure begins. Meet up at the airport, snap the first group photo, and get that Google Photos folder rolling.</p>
+        <ul class="event-list">
+          <li>
+            <span class="event-time">Airport</span>
+            <span><span class="tag tag-travel">Travel</span> Group meet-up &mdash; snap the first photo and load it to the shared Google Photos folder</span>
+          </li>
+          <li>
+            <span class="event-time">Departure</span>
+            <span><span class="tag tag-travel">Travel</span> Flight to Edinburgh (via Chicago O'Hare / United)</span>
+          </li>
+          <li>
+            <span class="event-time">Note</span>
+            <span>&#128204; EBSEN crew: scan passport and complete ETA form in the United app before this day. Small fee applies.</span>
+          </li>
+        </ul>
+        <div class="note-box">&#9999;&#65039; Set up the group text stream a few days before departure so everyone is connected.</div>
+      </div>
+    </div>
+
+    <!-- Day 2: Arrive Edinburgh -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-label">Day 2</span>
+        <span class="day-title">Arrive Edinburgh &mdash; Head to Fife</span>
+        <span class="day-date">Sun, Jun 14</span>
+      </div>
+      <div class="day-body">
+        <p>Land at Edinburgh Airport and make the scenic drive across the Firth of Forth into the Kingdom of Fife. St. Andrews awaits.</p>
+        <ul class="event-list">
+          <li>
+            <span class="event-time">Morning</span>
+            <span><span class="tag tag-travel">Travel</span> Land at Edinburgh Airport &mdash; see airport map in travel documents</span>
+          </li>
+          <li>
+            <span class="event-time">Drive</span>
+            <span><span class="tag tag-travel">Travel</span> ~1 hr drive to St. Andrews via the Firth of Forth crossing</span>
+          </li>
+          <li>
+            <span class="event-time">Afternoon</span>
+            <span><span class="tag tag-hotel">Lodge</span> Check in to St. Andrews lodging &mdash; details in Travel Plans PDF</span>
+          </li>
+          <li>
+            <span class="event-time">Evening</span>
+            <span><span class="tag tag-dinner">Dinner</span> First dinner in St. Andrews &mdash; dinner reservations being arranged at historic spots</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 3: St. Andrews explore + Crail -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-label">Day 3</span>
+        <span class="day-title">St. Andrews + Crail Golfing Society &#9975;</span>
+        <span class="day-date">Mon, Jun 15</span>
+      </div>
+      <div class="day-body">
+        <p>Morning in St. Andrews &mdash; explore the Old Course, walk the Swilcan Bridge, visit the British Golf Museum. Afternoon golf at Crail Balcomie Links on the rugged Fife coastline.</p>
+        <ul class="event-list">
+          <li>
+            <span class="event-time">Morning</span>
+            <span><span class="tag tag-explore">Explore</span> Walk the Old Course &mdash; Swilcan Bridge photo op, stroll along the 18th fairway</span>
+          </li>
+          <li>
+            <span class="event-time">Midday</span>
+            <span><span class="tag tag-explore">Explore</span> British Golf Museum &amp; St Andrews town centre</span>
+          </li>
+          <li>
+            <span class="event-time">Afternoon</span>
+            <span><span class="tag tag-golf">Golf</span> <strong>Crail Golfing Society &mdash; Balcomie Links</strong> &mdash; par 69, Tom Morris design (1895), stunning cliff-edge par 3s</span>
+          </li>
+          <li>
+            <span class="event-time">Evening</span>
+            <span><span class="tag tag-dinner">Dinner</span> Dinner TBD &mdash; Ken has been sourcing historic dining spots in and around St. Andrews</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 4: Elie -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-label">Day 4</span>
+        <span class="day-title">Elie Golf House Club &#9975;</span>
+        <span class="day-date">Tue, Jun 16</span>
+      </div>
+      <div class="day-body">
+        <p>Head down the coast to the charming village of Elie for a round at one of Scotland&rsquo;s most storied links. Keep an eye out for the periscope in the starter&rsquo;s hut.</p>
+        <ul class="event-list">
+          <li>
+            <span class="event-time">Morning</span>
+            <span><span class="tag tag-travel">Travel</span> Drive to Elie (~30 min from St. Andrews, through East Neuk villages)</span>
+          </li>
+          <li>
+            <span class="event-time">Tee time</span>
+            <span><span class="tag tag-golf">Golf</span> <strong>Golf House Club, Elie</strong> &mdash; 18 holes, 16 par 4s and 2 par 3s, fast undulating greens. Golf played here since the 1500s.</span>
+          </li>
+          <li>
+            <span class="event-time">Must See</span>
+            <span>&#128300; Check out the Royal Navy submarine periscope in the starter&rsquo;s hut &mdash; salvaged from HMS Excalibur (1968)</span>
+          </li>
+          <li>
+            <span class="event-time">Evening</span>
+            <span><span class="tag tag-dinner">Dinner</span> Return to St. Andrews &mdash; dinner at a history-steeped local restaurant</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 5: Lundin Links -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-label">Day 5</span>
+        <span class="day-title">Lundin Golf Club &#9975;</span>
+        <span class="day-date">Wed, Jun 17</span>
+      </div>
+      <div class="day-body">
+        <p>Lundin is only 20 minutes from St. Andrews but feels like a world away &mdash; a classic Old Tom Morris / James Braid layout with arguably the best greens in all of Fife.</p>
+        <ul class="event-list">
+          <li>
+            <span class="event-time">Tee time</span>
+            <span><span class="tag tag-golf">Golf</span> <strong>Lundin Golf Club</strong> &mdash; Founded 1868, designed by Old Tom Morris &amp; James Braid. Former Open Championship qualifying venue.</span>
+          </li>
+          <li>
+            <span class="event-time">Watch For</span>
+            <span>&#128205; Open burns, railway boundary, and strategic bunker placement &mdash; this course bites back</span>
+          </li>
+          <li>
+            <span class="event-time">Afternoon</span>
+            <span><span class="tag tag-explore">Explore</span> Optional: Explore Lundin Links village and the Standing Stones of Lundin nearby</span>
+          </li>
+          <li>
+            <span class="event-time">Evening</span>
+            <span><span class="tag tag-dinner">Dinner</span> Dinner back in St. Andrews &mdash; rotation of booked spots</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 6: Leven Links -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-label">Day 6</span>
+        <span class="day-title">Leven Links &#9975;</span>
+        <span class="day-date">Thu, Jun 18</span>
+      </div>
+      <div class="day-body">
+        <p>Leven Links &mdash; the course that claims to be the first in the world to feature 18 tees and 18 separate greens. The toughest closing hole in Scotland is waiting for you on 18.</p>
+        <ul class="event-list">
+          <li>
+            <span class="event-time">Tee time</span>
+            <span><span class="tag tag-golf">Golf</span> <strong>Leven Links</strong> &mdash; Six-time Open Championship final qualifying venue. Rolling fairways, sand dunes, fast greens, burns, pot bunkers.</span>
+          </li>
+          <li>
+            <span class="event-time">Hole 18</span>
+            <span>&#128293; 458-yard par 4 &mdash; considered the toughest finishing hole in Scotland. Step up.</span>
+          </li>
+          <li>
+            <span class="event-time">Evening</span>
+            <span><span class="tag tag-dinner">Dinner</span> Celebratory dinner after surviving Leven's 18th</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 7: St. Andrews town day -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-label">Day 7</span>
+        <span class="day-title">St. Andrews Exploration Day &#128506;&#65039;</span>
+        <span class="day-date">Fri, Jun 19</span>
+      </div>
+      <div class="day-body">
+        <p>A day to soak in the town, rest the legs, and soak up 600 years of golf history. The Old Course is right there &mdash; walk every famous inch of it.</p>
+        <ul class="event-list">
+          <li>
+            <span class="event-time">Morning</span>
+            <span><span class="tag tag-explore">Explore</span> St. Andrews Cathedral ruins &amp; castle &mdash; spectacular seaside medieval history</span>
+          </li>
+          <li>
+            <span class="event-time">Midday</span>
+            <span><span class="tag tag-explore">Explore</span> The Old Course stroll &mdash; walk the Swilcan Burn, stand on the Valley of Sin, peer into Hell Bunker</span>
+          </li>
+          <li>
+            <span class="event-time">Afternoon</span>
+            <span><span class="tag tag-explore">Explore</span> St. Andrews University &amp; town centre shopping &mdash; grab some whisky for the road</span>
+          </li>
+          <li>
+            <span class="event-time">Evening</span>
+            <span><span class="tag tag-dinner">Dinner</span> Special dinner reservation &mdash; Ken&rsquo;s pick from the golf history dining options</span>
+          </li>
+        </ul>
+        <div class="note-box">&#127922; Old Course Ballot status TBD &mdash; if the ballot comes through, this day or Day 8 gets upgraded to an all-time round.</div>
+      </div>
+    </div>
+
+    <!-- Day 8: Old Course (TBD) or flex -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-label">Day 8</span>
+        <span class="day-title">Old Course Ballot Day (TBD) &#127922; &mdash; or Flex Day</span>
+        <span class="day-date">Sat, Jun 20</span>
+      </div>
+      <div class="day-body">
+        <p>If the Old Course ballot gods smile on us, this is The Day. If not, a flex day for a bonus round at another Fife gem or a half-day in the countryside.</p>
+        <ul class="event-list">
+          <li>
+            <span class="event-time">Best Case</span>
+            <span><span class="tag tag-golf">Golf</span> <strong>The Old Course at St Andrews</strong> &mdash; the birthplace of golf. Par 72, 7,305 yards, Swilcan Bridge, Hell Bunker, Road Hole.</span>
+          </li>
+          <li>
+            <span class="event-time">Alternate</span>
+            <span><span class="tag tag-golf">Golf</span> One of St. Andrews' other Links Trust courses (New Course, Jubilee, Castle Course) &mdash; all world-class</span>
+          </li>
+          <li>
+            <span class="event-time">Evening</span>
+            <span><span class="tag tag-dinner">Dinner</span> Final St. Andrews dinner &mdash; recap of the week, tallying scorecards and trash talk</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 9: Head home -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-label">Day 9</span>
+        <span class="day-title">Edinburgh &mdash; Fly Home &#9992;&#65039;</span>
+        <span class="day-date">Sun, Jun 21&ndash;22</span>
+      </div>
+      <div class="day-body">
+        <p>The clubs go back in the travel bags. Drive back to Edinburgh, drop the rental, and carry these memories home for life.</p>
+        <ul class="event-list">
+          <li>
+            <span class="event-time">Morning</span>
+            <span><span class="tag tag-travel">Travel</span> Check out of St. Andrews lodging &mdash; drive to Edinburgh Airport (~1 hr)</span>
+          </li>
+          <li>
+            <span class="event-time">Flight</span>
+            <span><span class="tag tag-travel">Travel</span> Return flight &mdash; Chicago O'Hare via United</span>
+          </li>
+        </ul>
+        <div class="note-box">&#128640; &ldquo;Gear up, Loosen Up, Practice Up&hellip; and finally&hellip; BUCKLE UP!!&rdquo;</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== COURSES ===== -->
+  <section id="courses">
+    <div class="section-header">
+      <h2>The Courses</h2>
+      <div class="divider"></div>
+      <p>Four legendary layouts across the Kingdom of Fife &mdash; plus a shot at the Old Course.</p>
+    </div>
+
+    <div class="course-grid">
+
+      <!-- Crail -->
+      <div class="course-card">
+        <img src="images/crail_balcomie.jpg" alt="Crail Golfing Society - Balcomie Links, 3rd Green" class="course-img" />
+        <div class="course-body">
+          <span class="course-badge">Course 1</span>
+          <div class="course-name">Crail Golfing Society</div>
+          <div class="course-location">&#128205; Crail, Fife &mdash; Balcomie Links</div>
+          <p class="course-desc">The 7th oldest golf club in the world, Balcomie Links is a jaw-dropping Old Tom Morris design carved into the Fife Ness coastline. Six par 3s, including a 210-yarder played over a vertical cliff. Pure links drama.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Par 69 &bull; 5,861 yards</div>
+          <div class="course-fact"><span class="course-fact-icon">&#128197;</span> Designed by Tom Morris, 1895</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> Featured in &ldquo;Golf in the Kingdom&rdquo;</div>
+          <p class="course-photo-credit">Photo: Bursting74 via Wikimedia Commons (GFDL)</p>
+        </div>
+      </div>
+
+      <!-- Elie -->
+      <div class="course-card">
+        <img src="images/elie.jpg" alt="Golf House Club, Elie" class="course-img" />
+        <div class="course-body">
+          <span class="course-badge">Course 2</span>
+          <div class="course-name">Golf House Club, Elie</div>
+          <div class="course-location">&#128205; Elie &amp; Earlsferry, Fife</div>
+          <p class="course-desc">Golf has been played at Earlsferry Links since the 1500s. The current layout &mdash; largely unchanged since 1895 &mdash; features 16 par 4s and 2 par 3s with fast, undulating greens and sweeping seaside views. Birthplace of legends James Braid and three other Open champions.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Par 70 &bull; 18 holes</div>
+          <div class="course-fact"><span class="course-fact-icon">&#128300;</span> Starter's hut has a working submarine periscope</div>
+          <div class="course-fact"><span class="course-fact-icon">&#128197;</span> Golf played here since the 1500s</div>
+          <p class="course-photo-credit">Photo: Geograph.org.uk via Wikimedia Commons (CC-BY-SA 2.0)</p>
+        </div>
+      </div>
+
+      <!-- Lundin -->
+      <div class="course-card">
+        <img src="images/lundin.jpg" alt="Lundin Golf Club, Largo, Fife" class="course-img" />
+        <div class="course-body">
+          <span class="course-badge">Course 3</span>
+          <div class="course-name">Lundin Golf Club</div>
+          <div class="course-location">&#128205; Lundin Links, Fife &mdash; 20 min from St. Andrews</div>
+          <p class="course-desc">A hidden gem designed by two of history&rsquo;s greatest: Old Tom Morris and James Braid. Former Open Championship qualifying venue with arguably the best greens in the entire Kingdom of Fife. Complex layout with open burns, a railway boundary, and strategic bunkering.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#128197;</span> Founded May 8, 1868</div>
+          <div class="course-fact"><span class="course-fact-icon">&#9974;</span> Old Tom Morris &amp; James Braid design</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> Former Open Championship qualifier</div>
+          <p class="course-photo-credit">Photo: Richard Webb via Wikimedia Commons (CC-BY-SA 2.0)</p>
+        </div>
+      </div>
+
+      <!-- Leven Links -->
+      <div class="course-card">
+        <img src="images/st_andrews_golfers.jpg" alt="Golfers in Fife, St Andrews area" class="course-img" />
+        <div class="course-body">
+          <span class="course-badge">Course 4</span>
+          <div class="course-name">Leven Links</div>
+          <div class="course-location">&#128205; Leven, Fife</div>
+          <p class="course-desc">Claims the title of first course in the world with 18 tees and 18 separate greens. A six-time Open Championship final qualifying venue with rolling fairways, sand dunes, fast greens, burns, and pot bunkers. The 18th hole &mdash; a 458-yard par 4 &mdash; is considered the toughest closing hole in all of Scotland.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> 6x Open Championship qualifying venue</div>
+          <div class="course-fact"><span class="course-fact-icon">&#128293;</span> 18th hole: 458 yds &mdash; toughest finisher in Scotland</div>
+          <div class="course-fact"><span class="course-fact-icon">&#128197;</span> Golf history dating to the mid-1800s</div>
+          <p class="course-photo-credit">Photo: Mike Pennington via Wikimedia Commons (CC-BY-SA 2.0)</p>
+        </div>
+      </div>
+
+      <!-- Old Course -->
+      <div class="course-card" style="grid-column: 1 / -1;">
+        <img src="images/st_andrews_hero.jpg" alt="St Andrews Links aerial view" class="course-img" style="height: 260px;" />
+        <div class="course-body">
+          <span class="course-badge" style="background:#7ec87f; color:#0a150b;">Ballot TBD</span>
+          <div class="course-name">The Old Course at St Andrews</div>
+          <div class="course-location">&#128205; St. Andrews, Fife &mdash; Operated by St. Andrews Links Trust</div>
+          <p class="course-desc">The birthplace of golf. The most famous course in the world. 600+ years of history on every hole. Swilcan Bridge. Hell Bunker. The Road Hole. The Valley of Sin. Par 72, 7,305 yards. The Old Course ballot lottery is still in play &mdash; if it comes through, everything else on the itinerary pales in comparison. And even if it doesn&rsquo;t, you&rsquo;ll walk every inch of it anyway.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#128197;</span> Golf played here since the early 1400s &bull; Par 72 &bull; 7,305 yards</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> 30 Open Championships hosted &mdash; more than any other venue</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127966;</span> 7 double greens &bull; Swilcan Bridge (700 years old) &bull; Hell Bunker covers 300 sq yards</div>
+          <p class="course-photo-credit">Photo: Bahnfrend via Wikimedia Commons (CC-BY-SA 4.0)</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== LOGISTICS ===== -->
+  <section id="logistics">
+    <div class="section-header">
+      <h2>Logistics &amp; Need-to-Knows</h2>
+      <div class="divider"></div>
+      <p>Practical stuff so you can focus on your swing</p>
+    </div>
+
+    <div class="logistics-grid">
+
+      <div class="logistics-card">
+        <h3>&#128748;&#65039; Flights</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> United Airlines via Chicago O'Hare</li>
+          <li><span class="li-dot">&#9658;</span> Destination: Edinburgh Airport (EDI)</li>
+          <li><span class="li-dot">&#9658;</span> EBSEN crew: scan passport + ETA form in United App before departure</li>
+          <li><span class="li-dot">&#9658;</span> ETA can also be completed at the airport if needed (small fee)</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#127968; Lodging</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Base: St. Andrews, Fife</li>
+          <li><span class="li-dot">&#9658;</span> Full details + links in the Travel Plans document (Portal access)</li>
+          <li><span class="li-dot">&#9658;</span> Check-in: June 14 &bull; Check-out: June 21</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#128664; Getting Around</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> ~1 hr drive from Edinburgh to St. Andrews</li>
+          <li><span class="li-dot">&#9658;</span> All courses within 30 min of St. Andrews base</li>
+          <li><span class="li-dot">&#9658;</span> Crail: 30 min east &bull; Lundin/Leven: 20 min southwest</li>
+          <li><span class="li-dot">&#9658;</span> Elie: ~35 min southwest along the coastal road</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#128181; Money &amp; Cards</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Currency: <strong>British Pound Sterling (&#163;)</strong></li>
+          <li><span class="li-dot">&#9658;</span> Get some cash for caddies and small purchases</li>
+          <li><span class="li-dot">&#9658;</span> Use a credit card with <strong>no international transaction fees</strong></li>
+          <li><span class="li-dot">&#9658;</span> Most courses and restaurants accept Visa/Mastercard</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#128241; Phones &amp; Comms</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Call your carrier &mdash; activate an international plan before departure</li>
+          <li><span class="li-dot">&#9658;</span> Group text stream to start a few days before travel</li>
+          <li><span class="li-dot">&#9658;</span> Google Photos folder: set up and share first photo at the airport</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#127784;&#65039; Weather</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Scotland in June: cool, breezy, and unpredictable</li>
+          <li><span class="li-dot">&#9658;</span>  <strong>Most important skill: putting rain gear on and off fast</strong></li>
+          <li><span class="li-dot">&#9658;</span> Pack layers &mdash; morning rounds can be chilly even in June</li>
+          <li><span class="li-dot">&#9658;</span> Wind on the links can make any score look ugly fast</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#9975; Old Course Ballot</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Daily ballot lottery operated by St. Andrews Links Trust</li>
+          <li><span class="li-dot">&#9658;</span> Ballot drawn the evening before &mdash; enter early, check results</li>
+          <li><span class="li-dot">&#9658;</span> Details in Travel Plans document &mdash; stay tuned</li>
+          <li><span class="li-dot">&#9658;</span> Even without a tee time: walk the course, pose on the bridge</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#127856; Dining</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Dinner reservations being arranged at historic St. Andrews restaurants</li>
+          <li><span class="li-dot">&#9658;</span> Mix of golf-history spots and local Fife dining</li>
+          <li><span class="li-dot">&#9658;</span> Flexibility built in for weather delays or spontaneous changes</li>
+          <li><span class="li-dot">&#9658;</span> Full reservation list to be shared before departure</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CHECKLIST ===== -->
+  <section id="checklist">
+    <div class="section-header">
+      <h2>Pre-Trip Checklist</h2>
+      <div class="divider"></div>
+      <p>Everything to handle before June 13th</p>
+    </div>
+
+    <div class="checklist">
+      <h3>&#9989; Don&rsquo;t Forget Before You Go</h3>
+      <div class="checklist-grid">
+        <div class="checklist-item"><div class="check-box"></div><span>Passport valid &mdash; must not expire within 6 months of return date</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>UK ETA form completed (required for US citizens entering UK)</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>EBSEN crew: scan passport + upload ETA in United app</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>International phone plan activated with your carrier</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Credit card with no international transaction fees &mdash; confirmed</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Sterling pounds secured for cash needs (caddies, tips)</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Rain gear packed (jacket + pants &mdash; quick on/off is key)</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Golf clubs &mdash; shipped ahead or packed for check-in</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Read the Travel Plans PDF &mdash; check the hot links inside</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Check portal access referenced in Travel Plans document</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Join the group text stream (starts a few days before)</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Google Photos: confirm you can add photos to the shared folder</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Load all contact info into your phone</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Old Course ballot &mdash; follow instructions in Travel Plans</span></div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer>
+  <p>&#9975; Scotland Golf 2026 &mdash; June 13&ndash;22</p>
+  <p>Courses: Crail Balcomie &bull; Elie &bull; Lundin &bull; Leven Links &bull; Old Course (TBD)</p>
+  <p style="margin-top:1rem; font-size:0.7rem; color:#3a5e3b;">
+    Course photos: Wikimedia Commons &mdash; CC-BY-SA 2.0/4.0 &amp; GFDL licenses.<br/>
+    St Andrews hero photo: Bahnfrend (CC-BY-SA 4.0) &bull; Elie: Geograph.org.uk (CC-BY-SA 2.0) &bull;
+    Lundin: Richard Webb (CC-BY-SA 2.0) &bull; Crail: Bursting74 (GFDL) &bull; Leven: Mike Pennington (CC-BY-SA 2.0)
+  </p>
+</footer>
+
+<script>
+  // Countdown to June 13, 2026 08:00 AM CDT (UTC-5)
+  function updateCountdown() {
+    var target = new Date('2026-06-13T13:00:00Z'); // 8am CDT = 13:00 UTC
+    var now = new Date();
+    var diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('countdown').innerHTML = '<div style="color:#7ec87f;font-size:1.4rem;font-weight:700">&#9992;&#65039; We&rsquo;re in the air!</div>';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = d;
+    document.getElementById('cd-hours').textContent = h;
+    document.getElementById('cd-mins').textContent = m;
+    document.getElementById('cd-secs').textContent = s;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Checkbox toggle (visual only)
+  document.querySelectorAll('.check-box').forEach(function(box) {
+    box.addEventListener('click', function() {
+      if (this.style.background === 'rgb(58, 110, 60)') {
+        this.style.background = '';
+        this.innerHTML = '';
+      } else {
+        this.style.background = '#3a6e3c';
+        this.innerHTML = '<svg viewBox="0 0 18 18" width="14" height="14" style="margin:2px"><polyline points="3,9 7,13 15,5" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
