@@ -213,6 +213,61 @@
       color: #8aab8b;
     }
 
+    /* ===== RIGHT NOW BAR ===== */
+    #right-now-bar {
+      background: linear-gradient(135deg, #1a3a1c, #243f26);
+      border: 2px solid #5a9e5c;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .right-now-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    .right-now-text {
+      flex: 1;
+      min-width: 220px;
+    }
+    .right-now-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #7ec87f;
+      margin-bottom: 0.25rem;
+    }
+    .right-now-main {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #e8e0d0;
+      line-height: 1.4;
+    }
+    .right-now-detail {
+      font-size: 0.85rem;
+      color: #a8d4a9;
+      margin-top: 0.2rem;
+    }
+    .right-now-btn {
+      display: inline-block;
+      background: #3a6e3c;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .right-now-btn:hover { background: #5a9e5c; }
+
     /* ===== ITINERARY DAYS ===== */
     .day-card {
       background: #162718;
@@ -220,6 +275,10 @@
       border-radius: 12px;
       margin-bottom: 1.5rem;
       overflow: hidden;
+    }
+    .day-card.today-highlight {
+      border-color: #5a9e5c;
+      box-shadow: 0 0 0 2px rgba(90,158,92,0.25);
     }
     .day-header {
       background: linear-gradient(135deg, #1e3820, #2a4f2c);
@@ -284,6 +343,7 @@
     .tag-travel   { background: #4a3a1a; color: #e8c87e; }
     .tag-dinner   { background: #4a1a2e; color: #e87eb8; }
     .tag-explore  { background: #2e1a4a; color: #b87ee8; }
+    .tag-phone    { background: #1a3a4a; color: #7ed4e8; }
     .tag {
       display: inline-block;
       font-size: 0.65rem;
@@ -304,6 +364,16 @@
       font-size: 0.88rem;
       color: #a8d4a9;
     }
+    .phone-box {
+      background: rgba(30,90,140,0.15);
+      border-left: 3px solid #4a9ec8;
+      padding: 0.65rem 1rem;
+      margin: 0.75rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem;
+      color: #9ed4f0;
+    }
+    .phone-box strong { color: #c8e8f8; }
 
     /* ===== COURSES ===== */
     .course-grid {
@@ -497,6 +567,9 @@
       /* Glance grid: 2 cols minimum */
       .glance-grid { grid-template-columns: repeat(2, 1fr); }
 
+      /* Right now bar */
+      #right-now-bar { flex-direction: column; align-items: flex-start; }
+
       /* Airport map link — make it a big tappable button */
       a[href$=".pdf"] {
         display: inline-block;
@@ -553,16 +626,16 @@
 
 <!-- ===== NAV ===== -->
 <nav>
-  <a href="#glance">Overview</a>
-  <a href="#logistics">Logistics</a>
+  <a href="#glance">Countdown</a>
+  <a href="#checklist">Checklist</a>
   <a href="#itinerary">Itinerary</a>
   <a href="#courses">Courses</a>
-  <a href="#checklist">Checklist</a>
+  <a href="#logistics">Logistics</a>
 </nav>
 
 <div class="container">
 
-  <!-- ===== AT A GLANCE ===== -->
+  <!-- ===== COUNTDOWN / AT A GLANCE ===== -->
   <section id="glance">
     <div class="section-header">
       <h2>Trip at a Glance</h2>
@@ -605,117 +678,49 @@
     </div>
   </section>
 
-  <!-- ===== LOGISTICS ===== -->
-  <section id="logistics">
+  <!-- ===== PRE-TRIP CHECKLIST ===== -->
+  <section id="checklist">
     <div class="section-header">
-      <h2>Logistics &amp; Need-to-Knows</h2>
+      <h2>Pre-Trip Checklist</h2>
       <div class="divider"></div>
-      <p>Practical stuff so you can focus on your swing</p>
+      <p>Everything to handle before June 14th</p>
     </div>
 
-    <div class="logistics-grid">
-
-      <div class="logistics-card">
-        <h3>&#128748;&#65039; Flights</h3>
-        <ul>
-          <li><span class="li-dot">&#9658;</span> <strong>Outbound:</strong> UA #118 &mdash; arrive Edinburgh 8:25 AM, Sun Jun 14</li>
-          <li><span class="li-dot">&#9658;</span> <strong>Return:</strong> UA #119 &mdash; depart Edinburgh 11:30 AM, Sun Jun 21</li>
-          <li><span class="li-dot">&#9658;</span> Check in at least 2 hours before departure (3 hours recommended)</li>
-          <li><span class="li-dot">&#9658;</span> ETA (UK Electronic Travel Authorization) required for US citizens entering UK &mdash; apply online before you go</li>
-        </ul>
+    <div class="checklist">
+      <h3>&#9989; Don&rsquo;t Forget Before You Go</h3>
+      <div class="checklist-grid">
+        <div class="checklist-item"><div class="check-box"></div><span>Passport valid &mdash; must not expire within 6 months of return date</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>UK ETA (Electronic Travel Authorization) completed &mdash; apply at gov.uk before you travel</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>ETA &amp; United app: scan passport, complete ETA forms, and upload to United app</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>International phone plan activated with your carrier</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Credit card confirmed with no international transaction fees</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>British Pound Sterling secured for caddies, tips, and small purchases</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Rain gear packed (jacket + pants &mdash; quick on/off is key)</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Golf clubs &mdash; shipped ahead or packed for check-in</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>UK plug adapter (240V, 3-prong) packed</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Log in to Hidden Links portal &mdash; password: Pangman2026</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Read the full Travel Plans PDF &mdash; check the hot links inside</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Enter Old Course ballot via St. Andrews Links Trust portal</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Join the group text stream (set up a few days before departure)</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Google Photos: confirm access to shared folder</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Save Craig Bilham&rsquo;s number: +44 (0)1294 222622 (airport transfer Jun 14&ndash;16)</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Save Club Cars number: +44 (0)1334 479900 (transfers Jun 17&ndash;21)</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Lorimer House self check-in code: 8591 (key is in your room)</span></div>
+        <div class="checklist-item"><div class="check-box"></div><span>Book dinner reservations ASAP via Hidden Links portal recommendations</span></div>
       </div>
-
-      <div class="logistics-card">
-        <h3>&#127968; Lodging</h3>
-        <ul>
-          <li><span class="li-dot">&#9658;</span> <strong>Jun 14&ndash;16:</strong> Turnberry, a Luxury Collection Resort (Ayrshire)</li>
-          <li><span class="li-dot">&#9658;</span> <strong>Jun 16&ndash;21:</strong> Greyfriars Hotel, 129 North Street, St. Andrews</li>
-          <li><span class="li-dot">&#9658;</span> <strong>Jun 16&ndash;21:</strong> Lorimer House, 19 Murray Park, St. Andrews (self check-in code: 8591)</li>
-          <li><span class="li-dot">&#9658;</span> <strong>Jun 16&ndash;21:</strong> Nethan Guest House, 17 Murray Park, St. Andrews</li>
-          <li><span class="li-dot">&#9658;</span> All accommodation prepaid &bull; breakfast included at all properties</li>
-          <li><span class="li-dot">&#9658;</span> Lorimer House check-in: 3pm &bull; check-out: 10am</li>
-        </ul>
-      </div>
-
-      <div class="logistics-card">
-        <h3>&#128664; Transportation</h3>
-        <ul>
-          <li><span class="li-dot">&#9658;</span> <strong>Jun 14&ndash;16:</strong> Craig Bilham Executive Travel &mdash; +44 (0)1294 222622</li>
-          <li><span class="li-dot">&#9658;</span> <strong>Jun 17, 19, 20, 21:</strong> Club Cars &mdash; +44 (0)1334 479900</li>
-          <li><span class="li-dot">&#9658;</span> <strong>Jun 18:</strong> No transport &mdash; walk to Jubilee Course from St. Andrews</li>
-          <li><span class="li-dot">&#9658;</span> All transfers prepaid (no vouchers required)</li>
-          <li><span class="li-dot">&#9658;</span> Driver will have a sign with the group name at airport pick-up</li>
-        </ul>
-      </div>
-
-      <div class="logistics-card">
-        <h3>&#128181; Money &amp; Cards</h3>
-        <ul>
-          <li><span class="li-dot">&#9658;</span> Currency: <strong>British Pound Sterling (&#163;)</strong></li>
-          <li><span class="li-dot">&#9658;</span> Secure some Sterling before you go &mdash; caddies, tips, and small purchases</li>
-          <li><span class="li-dot">&#9658;</span> Use a credit card with <strong>no international transaction fees</strong></li>
-          <li><span class="li-dot">&#9658;</span> Old Course green fee to be paid directly on day of play (not covered in package)</li>
-          <li><span class="li-dot">&#9658;</span> Caddie tip: minimum 20% of caddie fee, paid in cash</li>
-        </ul>
-      </div>
-
-      <div class="logistics-card">
-        <h3>&#128241; Phones &amp; Comms</h3>
-        <ul>
-          <li><span class="li-dot">&#9658;</span> Call your carrier &mdash; activate an international plan before departure</li>
-          <li><span class="li-dot">&#9658;</span> Group text stream: set up a few days before travel</li>
-          <li><span class="li-dot">&#9658;</span> Google Photos folder: share the first airport photo</li>
-          <li><span class="li-dot">&#9658;</span> Hidden Links Portal: <a href="https://client.hiddenlinksgolf.com//Tour/Login?t=10052" style="color:#7ec87f;" target="_blank">client.hiddenlinksgolf.com</a> &bull; Password: Pangman2026</li>
-        </ul>
-      </div>
-
-      <div class="logistics-card">
-        <h3>&#127784;&#65039; Weather &amp; Dress Code</h3>
-        <ul>
-          <li><span class="li-dot">&#9658;</span> Scotland in June: cool, breezy, and unpredictable &mdash; pack layers</li>
-          <li><span class="li-dot">&#9658;</span> <strong>Most important skill: putting rain gear on and off fast</strong></li>
-          <li><span class="li-dot">&#9658;</span> Smart casual required on courses and in clubhouses</li>
-          <li><span class="li-dot">&#9658;</span> Collared shirts, tailored shorts only &mdash; no denim, tracksuits, or sleeveless tees</li>
-          <li><span class="li-dot">&#9658;</span> No headwear permitted inside clubhouses</li>
-          <li><span class="li-dot">&#9658;</span> UK power outlets: 240V, three-prong &mdash; bring plug adapters</li>
-        </ul>
-      </div>
-
-      <div class="logistics-card">
-        <h3>&#9971; Old Course Ballot</h3>
-        <ul>
-          <li><span class="li-dot">&#9658;</span> Daily lottery operated by St. Andrews Links Trust</li>
-          <li><span class="li-dot">&#9658;</span> Draw happens the evening before the desired round</li>
-          <li><span class="li-dot">&#9658;</span> If drawn: walks to/from Old Course (no transport needed)</li>
-          <li><span class="li-dot">&#9658;</span> Green fee paid directly on day &mdash; not included in package</li>
-          <li><span class="li-dot">&#9658;</span> Even without a tee time: walk it, cross the Swilcan Bridge, peer into Hell Bunker</li>
-        </ul>
-      </div>
-
-      <div class="logistics-card">
-        <h3>&#128664; Edinburgh Airport Pick-Up</h3>
-        <ul>
-          <li><span class="li-dot">&#9658;</span> Driver will <strong>not</strong> meet you in arrivals hall &mdash; call upon landing</li>
-          <li><span class="li-dot">&#9658;</span> Craig Bilham Executive Travel: <strong>+44 (0)1294 222622</strong></li>
-          <li><span class="li-dot">&#9658;</span> After luggage: exit terminal, turn left, walk through, turn right outside</li>
-          <li><span class="li-dot">&#9658;</span> Multi-story car park straight ahead &mdash; pick-up on ground floor (Lanes 1&ndash;4)</li>
-          <li><span class="li-dot">&#9658;</span> Driver will text which lane to go to &bull; Vehicle has group name on windshield</li>
-          <li><span class="li-dot">&#9658;</span> <a href="assets/edinburgh-airport-map.pdf" style="color:#7ec87f;">Download Edinburgh Airport Map PDF &rarr;</a></li>
-        </ul>
-      </div>
-
-      <div class="logistics-card">
-        <h3>&#127856; Dining</h3>
-        <ul>
-          <li><span class="li-dot">&#9658;</span> Dining recommendations in the Hidden Links client portal</li>
-          <li><span class="li-dot">&#9658;</span> Book dinner reservations as soon as possible &mdash; popular spots fill early</li>
-          <li><span class="li-dot">&#9658;</span> Accommodation providers can also suggest local options</li>
-          <li><span class="li-dot">&#9658;</span> Arrive at each course at least 40 minutes before tee time</li>
-        </ul>
-      </div>
-
     </div>
   </section>
+
+  <!-- ===== RIGHT NOW BAR ===== -->
+  <div id="right-now-bar" style="display:none;">
+    <div class="right-now-icon" id="rn-icon">&#9971;</div>
+    <div class="right-now-text">
+      <div class="right-now-label" id="rn-label">Right Now</div>
+      <div class="right-now-main" id="rn-main"></div>
+      <div class="right-now-detail" id="rn-detail"></div>
+    </div>
+    <a class="right-now-btn" id="rn-btn" href="#itinerary">Go to Today &darr;</a>
+  </div>
 
   <!-- ===== ITINERARY ===== -->
   <section id="itinerary">
@@ -726,7 +731,7 @@
     </div>
 
     <!-- Day 1: Arrive Edinburgh / Turnberry -->
-    <div class="day-card">
+    <div class="day-card" id="day-1">
       <div class="day-header">
         <span class="day-label">Day 1</span>
         <span class="day-title">Arrive Edinburgh &rarr; Turnberry &rarr; Prestwick &#9971;</span>
@@ -734,6 +739,7 @@
       </div>
       <div class="day-body">
         <p>Wheels down at Edinburgh. A private driver is waiting &mdash; no meeting in arrivals, call the number once you have your bags. First round of the trip is waiting at Prestwick in the afternoon.</p>
+        <div class="phone-box">&#128222; <strong>Driver: Craig Bilham Executive Travel &mdash; +44 (0)1294 222622.</strong> Call when you have your bags. Driver will text which lane to meet in (Ground floor, Lanes 1&ndash;4). Vehicle has group name on windshield.</div>
         <ul class="event-list">
           <li>
             <span class="event-time">8:25 AM</span>
@@ -749,7 +755,7 @@
           </li>
           <li>
             <span class="event-time">~8:45 PM</span>
-            <span><span class="tag tag-travel">Transfer</span> Pick-up at Prestwick, return to Turnberry</span>
+            <span><span class="tag tag-travel">Transfer</span> Pick-up at Prestwick, return to Turnberry (Craig Bilham)</span>
           </li>
           <li>
             <span class="event-time">Overnight</span>
@@ -761,7 +767,7 @@
     </div>
 
     <!-- Day 2: Royal Troon -->
-    <div class="day-card">
+    <div class="day-card" id="day-2">
       <div class="day-header">
         <span class="day-label">Day 2</span>
         <span class="day-title">Royal Troon &#9971;</span>
@@ -769,6 +775,7 @@
       </div>
       <div class="day-body">
         <p>The Postage Stamp awaits. Royal Troon has hosted The Open 11 times &mdash; today it hosts your group. The 8th hole is just 123 yards but don&rsquo;t let that fool you.</p>
+        <div class="phone-box">&#128222; <strong>Driver: Craig Bilham Executive Travel &mdash; +44 (0)1294 222622.</strong> Same driver as Day 1 for all Ayrshire transfers.</div>
         <ul class="event-list">
           <li>
             <span class="event-time">1:30 PM</span>
@@ -780,7 +787,7 @@
           </li>
           <li>
             <span class="event-time">~8:30 PM</span>
-            <span><span class="tag tag-travel">Transfer</span> Return pick-up, back to Turnberry</span>
+            <span><span class="tag tag-travel">Transfer</span> Return pick-up, back to Turnberry (Craig Bilham)</span>
           </li>
           <li>
             <span class="event-time">Overnight</span>
@@ -791,7 +798,7 @@
     </div>
 
     <!-- Day 3: Turnberry Ailsa + Transfer to St Andrews -->
-    <div class="day-card">
+    <div class="day-card" id="day-3">
       <div class="day-header">
         <span class="day-label">Day 3</span>
         <span class="day-title">Turnberry Ailsa Course &rarr; St. Andrews &#9971;</span>
@@ -799,6 +806,7 @@
       </div>
       <div class="day-body">
         <p>Wake up at Turnberry, play the course right outside your door, then pack up and head east to St. Andrews for the rest of the trip. Morning rounds under the Ailsa Craig view before the big transfer.</p>
+        <div class="phone-box">&#128222; <strong>Driver: Craig Bilham Executive Travel &mdash; +44 (0)1294 222622.</strong> Final day with Craig &mdash; he&rsquo;ll transfer you to St. Andrews after the round.</div>
         <ul class="event-list">
           <li>
             <span class="event-time">10:31 AM</span>
@@ -826,7 +834,7 @@
     </div>
 
     <!-- Day 4: Elie -->
-    <div class="day-card">
+    <div class="day-card" id="day-4">
       <div class="day-header">
         <span class="day-label">Day 4</span>
         <span class="day-title">Golf House Club, Elie &#9971;</span>
@@ -834,10 +842,11 @@
       </div>
       <div class="day-body">
         <p>Head down the Fife coast to Elie &mdash; one of Scotland&rsquo;s most historic and intimate links. Golf has been played here since the 15th century. Ask the starter about the periscope.</p>
+        <div class="phone-box">&#128222; <strong>Driver: Club Cars &mdash; +44 (0)1334 479900.</strong> New driver for St. Andrews-area transfers (Days 4, 6, 7, 8).</div>
         <ul class="event-list">
           <li>
             <span class="event-time">10:30 AM</span>
-            <span><span class="tag tag-travel">Transfer</span> Depart St. Andrews for Elie (Club Cars)</span>
+            <span><span class="tag tag-travel">Transfer</span> Depart St. Andrews for Elie (Club Cars &mdash; +44 (0)1334 479900)</span>
           </li>
           <li>
             <span class="event-time">12:00 PM</span>
@@ -860,7 +869,7 @@
     </div>
 
     <!-- Day 5: St. Andrews Jubilee -->
-    <div class="day-card">
+    <div class="day-card" id="day-5">
       <div class="day-header">
         <span class="day-label">Day 5</span>
         <span class="day-title">St. Andrews Jubilee Course &#9971;</span>
@@ -887,7 +896,7 @@
     </div>
 
     <!-- Day 6: Old Course Ballot + Lundin Links -->
-    <div class="day-card">
+    <div class="day-card" id="day-6">
       <div class="day-header">
         <span class="day-label">Day 6</span>
         <span class="day-title">Old Course Ballot &amp; Lundin Golf Club &#9971;</span>
@@ -895,6 +904,7 @@
       </div>
       <div class="day-body">
         <p>Two-round day if the ballot gods smile. If the Old Course comes through, take that walk in the morning, then head south to Lundin in the afternoon. Lundin alone would be a highlight on any other trip.</p>
+        <div class="phone-box">&#128222; <strong>Driver: Club Cars &mdash; +44 (0)1334 479900.</strong> Pick-up for Lundin Golf Club transfer.</div>
         <ul class="event-list">
           <li>
             <span class="event-time">Morning</span>
@@ -902,7 +912,7 @@
           </li>
           <li>
             <span class="event-time">10:45 AM</span>
-            <span><span class="tag tag-travel">Transfer</span> Depart St. Andrews for Lundin Golf Club (Club Cars)</span>
+            <span><span class="tag tag-travel">Transfer</span> Depart St. Andrews for Lundin Golf Club (Club Cars &mdash; +44 (0)1334 479900)</span>
           </li>
           <li>
             <span class="event-time">12:20 PM</span>
@@ -922,7 +932,7 @@
     </div>
 
     <!-- Day 7: Dumbarnie Links -->
-    <div class="day-card">
+    <div class="day-card" id="day-7">
       <div class="day-header">
         <span class="day-label">Day 7</span>
         <span class="day-title">Dumbarnie Links &#9971;</span>
@@ -930,10 +940,11 @@
       </div>
       <div class="day-body">
         <p>The newest gem on the trip &mdash; Dumbarnie Links opened in 2020 and immediately earned its place among Scotland&rsquo;s best. Pebble Beach vibes, Fife prices, and coastal holes that rival anything in the British Isles.</p>
+        <div class="phone-box">&#128222; <strong>Driver: Club Cars &mdash; +44 (0)1334 479900.</strong> Early pick-up for Dumbarnie.</div>
         <ul class="event-list">
           <li>
             <span class="event-time">8:15 AM</span>
-            <span><span class="tag tag-travel">Transfer</span> Early departure from St. Andrews for Dumbarnie (Club Cars)</span>
+            <span><span class="tag tag-travel">Transfer</span> Early departure from St. Andrews for Dumbarnie (Club Cars &mdash; +44 (0)1334 479900)</span>
           </li>
           <li>
             <span class="event-time">9:40 AM</span>
@@ -956,7 +967,7 @@
     </div>
 
     <!-- Day 8: Edinburgh fly home -->
-    <div class="day-card">
+    <div class="day-card" id="day-8">
       <div class="day-header">
         <span class="day-label">Day 8</span>
         <span class="day-title">Fly Home &#9992;&#65039;</span>
@@ -964,6 +975,7 @@
       </div>
       <div class="day-body">
         <p>Check out by 10am. Transfer to Edinburgh Airport for the flight home. The clubs go back in the bags &mdash; the memories don&rsquo;t.</p>
+        <div class="phone-box">&#128222; <strong>Driver: Club Cars &mdash; +44 (0)1334 479900.</strong> Airport transfer to Edinburgh.</div>
         <ul class="event-list">
           <li>
             <span class="event-time">7:00 AM</span>
@@ -1108,36 +1120,115 @@
     </div>
   </section>
 
-  <!-- ===== CHECKLIST ===== -->
-  <section id="checklist">
+  <!-- ===== LOGISTICS (REFERENCE) ===== -->
+  <section id="logistics">
     <div class="section-header">
-      <h2>Pre-Trip Checklist</h2>
+      <h2>Logistics &amp; Need-to-Knows</h2>
       <div class="divider"></div>
-      <p>Everything to handle before June 14th</p>
+      <p>Reference section &mdash; practical details for the trip</p>
     </div>
 
-    <div class="checklist">
-      <h3>&#9989; Don&rsquo;t Forget Before You Go</h3>
-      <div class="checklist-grid">
-        <div class="checklist-item"><div class="check-box"></div><span>Passport valid &mdash; must not expire within 6 months of return date</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>UK ETA (Electronic Travel Authorization) completed &mdash; apply at gov.uk before you travel</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>ETA &amp; United app: scan passport, complete ETA forms, and upload to United app</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>International phone plan activated with your carrier</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Credit card confirmed with no international transaction fees</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>British Pound Sterling secured for caddies, tips, and small purchases</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Rain gear packed (jacket + pants &mdash; quick on/off is key)</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Golf clubs &mdash; shipped ahead or packed for check-in</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>UK plug adapter (240V, 3-prong) packed</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Log in to Hidden Links portal &mdash; password: Pangman2026</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Read the full Travel Plans PDF &mdash; check the hot links inside</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Enter Old Course ballot via St. Andrews Links Trust portal</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Join the group text stream (set up a few days before departure)</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Google Photos: confirm access to shared folder</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Save Craig Bilham&rsquo;s number: +44 (0)1294 222622 (airport transfer Jun 14&ndash;16)</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Save Club Cars number: +44 (0)1334 479900 (transfers Jun 17&ndash;21)</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Lorimer House self check-in code: 8591 (key is in your room)</span></div>
-        <div class="checklist-item"><div class="check-box"></div><span>Book dinner reservations ASAP via Hidden Links portal recommendations</span></div>
+    <div class="logistics-grid">
+
+      <div class="logistics-card">
+        <h3>&#128748;&#65039; Flights</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> <strong>Outbound:</strong> UA #118 &mdash; arrive Edinburgh 8:25 AM, Sun Jun 14</li>
+          <li><span class="li-dot">&#9658;</span> <strong>Return:</strong> UA #119 &mdash; depart Edinburgh 11:30 AM, Sun Jun 21</li>
+          <li><span class="li-dot">&#9658;</span> Check in at least 2 hours before departure (3 hours recommended)</li>
+          <li><span class="li-dot">&#9658;</span> ETA (UK Electronic Travel Authorization) required for US citizens entering UK &mdash; apply online before you go</li>
+        </ul>
       </div>
+
+      <div class="logistics-card">
+        <h3>&#127968; Lodging</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> <strong>Jun 14&ndash;16:</strong> Turnberry, a Luxury Collection Resort (Ayrshire)</li>
+          <li><span class="li-dot">&#9658;</span> <strong>Jun 16&ndash;21:</strong> Greyfriars Hotel, 129 North Street, St. Andrews</li>
+          <li><span class="li-dot">&#9658;</span> <strong>Jun 16&ndash;21:</strong> Lorimer House, 19 Murray Park, St. Andrews (self check-in code: 8591)</li>
+          <li><span class="li-dot">&#9658;</span> <strong>Jun 16&ndash;21:</strong> Nethan Guest House, 17 Murray Park, St. Andrews</li>
+          <li><span class="li-dot">&#9658;</span> All accommodation prepaid &bull; breakfast included at all properties</li>
+          <li><span class="li-dot">&#9658;</span> Lorimer House check-in: 3pm &bull; check-out: 10am</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#128664; Transportation</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> <strong>Jun 14&ndash;16:</strong> Craig Bilham Executive Travel &mdash; +44 (0)1294 222622</li>
+          <li><span class="li-dot">&#9658;</span> <strong>Jun 17, 19, 20, 21:</strong> Club Cars &mdash; +44 (0)1334 479900</li>
+          <li><span class="li-dot">&#9658;</span> <strong>Jun 18:</strong> No transport &mdash; walk to Jubilee Course from St. Andrews</li>
+          <li><span class="li-dot">&#9658;</span> All transfers prepaid (no vouchers required)</li>
+          <li><span class="li-dot">&#9658;</span> Driver will have a sign with the group name at airport pick-up</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#128181; Money &amp; Cards</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Currency: <strong>British Pound Sterling (&#163;)</strong></li>
+          <li><span class="li-dot">&#9658;</span> Secure some Sterling before you go &mdash; caddies, tips, and small purchases</li>
+          <li><span class="li-dot">&#9658;</span> Use a credit card with <strong>no international transaction fees</strong></li>
+          <li><span class="li-dot">&#9658;</span> Old Course green fee to be paid directly on day of play (not covered in package)</li>
+          <li><span class="li-dot">&#9658;</span> Caddie tip: minimum 20% of caddie fee, paid in cash</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#128241; Phones &amp; Comms</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Call your carrier &mdash; activate an international plan before departure</li>
+          <li><span class="li-dot">&#9658;</span> Group text stream: set up a few days before travel</li>
+          <li><span class="li-dot">&#9658;</span> Google Photos folder: share the first airport photo</li>
+          <li><span class="li-dot">&#9658;</span> Hidden Links Portal: <a href="https://client.hiddenlinksgolf.com//Tour/Login?t=10052" style="color:#7ec87f;" target="_blank">client.hiddenlinksgolf.com</a> &bull; Password: Pangman2026</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#127784;&#65039; Weather &amp; Dress Code</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Scotland in June: cool, breezy, and unpredictable &mdash; pack layers</li>
+          <li><span class="li-dot">&#9658;</span> <strong>Most important skill: putting rain gear on and off fast</strong></li>
+          <li><span class="li-dot">&#9658;</span> Smart casual required on courses and in clubhouses</li>
+          <li><span class="li-dot">&#9658;</span> Collared shirts, tailored shorts only &mdash; no denim, tracksuits, or sleeveless tees</li>
+          <li><span class="li-dot">&#9658;</span> No headwear permitted inside clubhouses</li>
+          <li><span class="li-dot">&#9658;</span> UK power outlets: 240V, three-prong &mdash; bring plug adapters</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#9971; Old Course Ballot</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Daily lottery operated by St. Andrews Links Trust</li>
+          <li><span class="li-dot">&#9658;</span> Draw happens the evening before the desired round</li>
+          <li><span class="li-dot">&#9658;</span> If drawn: walks to/from Old Course (no transport needed)</li>
+          <li><span class="li-dot">&#9658;</span> Green fee paid directly on day &mdash; not included in package</li>
+          <li><span class="li-dot">&#9658;</span> Even without a tee time: walk it, cross the Swilcan Bridge, peer into Hell Bunker</li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#128664; Edinburgh Airport Pick-Up</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Driver will <strong>not</strong> meet you in arrivals hall &mdash; call upon landing</li>
+          <li><span class="li-dot">&#9658;</span> Craig Bilham Executive Travel: <strong>+44 (0)1294 222622</strong></li>
+          <li><span class="li-dot">&#9658;</span> After luggage: exit terminal, turn left, walk through, turn right outside</li>
+          <li><span class="li-dot">&#9658;</span> Multi-story car park straight ahead &mdash; pick-up on ground floor (Lanes 1&ndash;4)</li>
+          <li><span class="li-dot">&#9658;</span> Driver will text which lane to go to &bull; Vehicle has group name on windshield</li>
+          <li><span class="li-dot">&#9658;</span> <a href="assets/edinburgh-airport-map.pdf" style="color:#7ec87f;">Download Edinburgh Airport Map PDF &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="logistics-card">
+        <h3>&#127856; Dining</h3>
+        <ul>
+          <li><span class="li-dot">&#9658;</span> Dining recommendations in the Hidden Links client portal</li>
+          <li><span class="li-dot">&#9658;</span> Book dinner reservations as soon as possible &mdash; popular spots fill early</li>
+          <li><span class="li-dot">&#9658;</span> Accommodation providers can also suggest local options</li>
+          <li><span class="li-dot">&#9658;</span> Arrive at each course at least 40 minutes before tee time</li>
+        </ul>
+      </div>
+
     </div>
   </section>
 
@@ -1152,13 +1243,92 @@
 </footer>
 
 <script>
-  // Countdown to June 14, 2026 08:25 AM local (flight arrival) / 14:25 UTC
+  // ===== TRIP DAYS =====
+  // Each day: midnight local time (browser timezone) on that calendar date
+  var TRIP_DAYS = [
+    { day: 1, label: 'Day 1', desc: 'Arrive Edinburgh &rarr; Prestwick', detail: 'Tee time 3:36 PM &bull; Craig Bilham: +44 (0)1294 222622', anchor: '#day-1' },
+    { day: 2, label: 'Day 2', desc: 'Royal Troon', detail: 'Tee time 3:20 PM &bull; Pickup 1:30 PM &bull; Craig Bilham: +44 (0)1294 222622', anchor: '#day-2' },
+    { day: 3, label: 'Day 3', desc: 'Turnberry Ailsa &rarr; St. Andrews', detail: 'Tee time 10:31 AM &bull; Transfer ~4:15 PM &bull; Craig Bilham: +44 (0)1294 222622', anchor: '#day-3' },
+    { day: 4, label: 'Day 4', desc: 'Golf House Club, Elie', detail: 'Tee time 12:00 PM &bull; Club Cars pickup 10:30 AM &bull; +44 (0)1334 479900', anchor: '#day-4' },
+    { day: 5, label: 'Day 5', desc: 'St. Andrews Jubilee Course', detail: 'Tee time 2:32 PM &bull; Walk from your hotel &mdash; no transport today', anchor: '#day-5' },
+    { day: 6, label: 'Day 6', desc: 'Ballot + Lundin Golf Club', detail: 'Lundin tee time 12:20 PM &bull; Club Cars pickup 10:45 AM &bull; +44 (0)1334 479900', anchor: '#day-6' },
+    { day: 7, label: 'Day 7', desc: 'Dumbarnie Links', detail: 'Tee time 9:40 AM &bull; Club Cars pickup 8:15 AM &bull; +44 (0)1334 479900', anchor: '#day-7' },
+    { day: 8, label: 'Day 8', desc: 'Fly Home', detail: 'Club Cars pickup 7:00 AM &bull; UA #119 departs 11:30 AM', anchor: '#day-8' },
+  ];
+
+  // Trip start/end (local calendar dates in browser timezone)
+  var TRIP_START_DATE = new Date(2026, 5, 14); // Jun 14, 2026
+  var TRIP_END_DATE   = new Date(2026, 5, 21); // Jun 21, 2026
+
+  function getLocalDateOnly(d) {
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  }
+
+  function updateRightNowBar() {
+    var now = new Date();
+    var today = getLocalDateOnly(now);
+    var bar = document.getElementById('right-now-bar');
+    var icon = document.getElementById('rn-icon');
+    var lbl = document.getElementById('rn-label');
+    var main = document.getElementById('rn-main');
+    var detail = document.getElementById('rn-detail');
+    var btn = document.getElementById('rn-btn');
+
+    var startOnly = getLocalDateOnly(TRIP_START_DATE);
+    var endOnly   = getLocalDateOnly(TRIP_END_DATE);
+
+    if (today < startOnly) {
+      // Before trip — hide the bar, countdown handles it
+      bar.style.display = 'none';
+      return;
+    }
+
+    bar.style.display = 'flex';
+
+    if (today > endOnly) {
+      // After trip
+      icon.textContent = '✔️';
+      lbl.textContent = 'Trip Complete';
+      main.textContent = 'Trip complete! What a week.';
+      detail.textContent = 'Scotland Golf 2026 — June 14–21. Eight courses. Eight legends. One unforgettable trip.';
+      btn.style.display = 'none';
+      return;
+    }
+
+    // During trip
+    var dayIndex = Math.floor((today - startOnly) / 86400000);
+    var dayInfo = TRIP_DAYS[dayIndex];
+    if (!dayInfo) return;
+
+    icon.textContent = '⛳';
+    lbl.textContent = 'Right Now — ' + dayInfo.label;
+    main.innerHTML = dayInfo.desc;
+    detail.innerHTML = dayInfo.detail;
+    btn.href = dayInfo.anchor;
+    btn.innerHTML = 'Jump to ' + dayInfo.label + ' ↓';
+
+    // Highlight the current day card
+    document.querySelectorAll('.day-card').forEach(function(c) { c.classList.remove('today-highlight'); });
+    var todayCard = document.querySelector(dayInfo.anchor);
+    if (todayCard) todayCard.classList.add('today-highlight');
+  }
+
+  // ===== COUNTDOWN =====
   function updateCountdown() {
-    var target = new Date('2026-06-14T08:25:00-05:00'); // UA #118 arrives Edinburgh 8:25am (local time Jun 14)
+    var target = new Date('2026-06-14T08:25:00-05:00');
     var now = new Date();
     var diff = target - now;
+    var cdEl = document.getElementById('countdown');
+
     if (diff <= 0) {
-      document.getElementById('countdown').innerHTML = '<div style="color:#7ec87f;font-size:1.4rem;font-weight:700">&#9992;&#65039; We&rsquo;re in Scotland!</div>';
+      // During or after trip, show "We're here!"
+      var today = getLocalDateOnly(now);
+      var endOnly = getLocalDateOnly(TRIP_END_DATE);
+      if (today > endOnly) {
+        cdEl.innerHTML = '<div style="color:#7ec87f;font-size:1.4rem;font-weight:700">&#9971; What a trip. See you next time.</div>';
+      } else {
+        cdEl.innerHTML = '<div style="color:#7ec87f;font-size:1.4rem;font-weight:700">&#9992;&#65039; We&rsquo;re in Scotland!</div>';
+      }
       return;
     }
     var d = Math.floor(diff / 86400000);
@@ -1170,10 +1340,12 @@
     document.getElementById('cd-mins').textContent = m;
     document.getElementById('cd-secs').textContent = s;
   }
+
   updateCountdown();
+  updateRightNowBar();
   setInterval(updateCountdown, 1000);
 
-  // Checkbox toggle (visual only)
+  // ===== CHECKBOX TOGGLE (visual only) =====
   document.querySelectorAll('.check-box').forEach(function(box) {
     box.addEventListener('click', function() {
       if (this.style.background === 'rgb(58, 110, 60)') {
