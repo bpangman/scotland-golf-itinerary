@@ -445,6 +445,33 @@
       font-style: italic;
     }
 
+    /* ===== INLINE COURSE DETAIL (inside day cards) ===== */
+    .course-detail {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #2d4a2e;
+    }
+    .course-detail .course-img {
+      height: 200px;
+      border-radius: 8px;
+      margin-bottom: 0.9rem;
+    }
+    .course-detail .course-desc {
+      margin-bottom: 0.6rem;
+    }
+
+    /* ===== FLIGHT INFO BOX ===== */
+    .flight-box {
+      background: rgba(90, 70, 10, 0.2);
+      border-left: 3px solid #c8a030;
+      padding: 0.65rem 1rem;
+      margin: 0.75rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem;
+      color: #e8c87e;
+    }
+    .flight-box strong { color: #f0d898; }
+
     /* ===== LOGISTICS ===== */
     .logistics-grid {
       display: grid;
@@ -645,7 +672,6 @@
   <a href="#glance">Countdown</a>
   <a href="#checklist">Checklist</a>
   <a href="#itinerary">Itinerary</a>
-  <a href="#courses">Courses</a>
   <a href="#logistics">Logistics</a>
 </nav>
 
@@ -728,7 +754,7 @@
   </section>
 
   <!-- ===== RIGHT NOW BAR ===== -->
-  <div id="right-now-bar" style="display:none;">
+  <div id="right-now-bar">
     <div class="right-now-icon" id="rn-icon">&#9971;</div>
     <div class="right-now-text">
       <div class="right-now-label" id="rn-label">Right Now</div>
@@ -754,6 +780,7 @@
         <span class="day-date">Sun, Jun 14</span>
       </div>
       <div class="day-body">
+        <div class="flight-box">&#128748;&#65039; <strong>UA #118 &mdash; Arrive Edinburgh Airport 8:25 AM, Sun Jun 14</strong></div>
         <p>Wheels down at Edinburgh. A private driver is waiting &mdash; no meeting in arrivals, call the number once you have your bags. First round of the trip is waiting at Prestwick in the afternoon.</p>
         <div class="phone-box">&#128222; <strong>Driver: Craig Bilham Executive Travel &mdash; +44 (0)1294 222622.</strong> Call when you have your bags. Driver will text which lane to meet in (Ground floor, Lanes 1&ndash;4). Vehicle has group name on windshield.</div>
         <ul class="event-list">
@@ -779,6 +806,14 @@
           </li>
         </ul>
         <div class="note-box">&#128204; <strong>Edinburgh Airport pick-up:</strong> After passport control, collect bags, then call your driver. Walk to terminal exit, turn left through the terminal building, then right outside &mdash; multi-story car park will be in front of you. Pick-up/drop-off is on the ground floor, lanes 1&ndash;4. Driver will tell you which lane. <a href="assets/edinburgh-airport-map.pdf" style="color:#7ec87f;">Download airport map &rarr;</a></div>
+
+        <div class="course-detail">
+          <img src="images/crail_balcomie.jpg" alt="Prestwick Golf Club, Ayrshire" class="course-img" />
+          <p class="course-desc">The birthplace of The Open Championship. The first Open was contested here in 1860 &mdash; eight players, 36 holes, a red Morocco belt as the prize. Old Tom Morris designed the original 12-hole course with little more than a wheelbarrow and a shovel. Six of those original greens are still in use today. Famous for blind shots over towering dunes and cavernous bunkers with no sight of the green.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Classic links &bull; Founded 1851</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> Hosted the first 12 Open Championships consecutively (1860&ndash;1872)</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> Notable holes: 1st (Railway), 3rd (Cardinal), 5th (Himalayas), 17th (Alps)</div>
+        </div>
       </div>
     </div>
 
@@ -810,6 +845,14 @@
             <span><span class="tag tag-hotel">Hotel</span> <strong>Turnberry, a Luxury Collection Resort</strong> &mdash; same rooms as Day 1. Breakfast included.</span>
           </li>
         </ul>
+
+        <div class="course-detail">
+          <img src="images/elie.jpg" alt="Royal Troon Golf Club" class="course-img" />
+          <p class="course-desc">Established 1878. Eleven Open Championships. The iconic Postage Stamp (8th) &mdash; 123 yards, a tiny green, and a history of wrecked scorecards. The Railway (11th) runs parallel to an actual railway line. The 6th hole is the longest par 5 in Open history at 623 yards. Royal charter granted 1978. Par 71, 7,175 yards, shaped by Willie Fernie, James Braid, and Alister MacKenzie.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Par 71 &bull; 7,175 yards</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> 11 Open Championships, most recent 2024</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> Postage Stamp (8th): 123 yards &mdash; most famous short par 3 in golf</div>
+        </div>
       </div>
     </div>
 
@@ -846,6 +889,14 @@
           </li>
         </ul>
         <div class="note-box">&#128204; For Lorimer House: if arriving outside normal hours, use door code <strong>8591</strong>. Your room number is posted in the dining room. Questions: call Scott on +44 (0)7841 669544.</div>
+
+        <div class="course-detail">
+          <img src="images/lundin.jpg" alt="Turnberry Ailsa Course" class="course-img" />
+          <p class="course-desc">Four Open Championships and one of the most dramatic coastlines in golf. Holes 4&ndash;11 hug the Firth of Clyde with sweeping views to Ailsa Craig and the Isle of Arran. The 9th (Bruce&rsquo;s Castle) plays from a rocky headland directly toward the Turnberry Lighthouse &mdash; sheer drop to the rocks below the green. Redesigned in 2016 by Martin Ebert, with further enhancements in 2025. Venue of the legendary 1977 &ldquo;Duel in the Sun.&rdquo;</p>
+          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Links &bull; 4 Open Championships</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> 1977 &ldquo;Duel in the Sun&rdquo; &mdash; Nicklaus vs. Watson</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> Hole 9 (Bruce&rsquo;s Castle): lighthouse par 3 &mdash; sea directly behind the green</div>
+        </div>
       </div>
     </div>
 
@@ -881,6 +932,14 @@
             <span><span class="tag tag-hotel">Hotel</span> Greyfriars / Lorimer House / Nethan (same as Day 3)</span>
           </li>
         </ul>
+
+        <div class="course-detail">
+          <img src="images/st_andrews_golfers.jpg" alt="Golf House Club Elie" class="course-img" />
+          <p class="course-desc">Golf has been played on the Elie links since the 15th century. The current Old Tom Morris layout (1895) is unchanged &mdash; making it one of the purest links experiences in Scotland. Famous for 8 front-to-back sloped greens, 16 par 4s and 2 par 3s, four dramatic sea views, and the oldest clubhouse in active use (1875). In 2025 it was officially recognized as the third oldest golf course in the world. And yes &mdash; there&rsquo;s a real submarine periscope in the starter&rsquo;s hut.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Par 70 &bull; 6,273 yards &bull; Old Tom Morris (1895)</div>
+          <div class="course-fact"><span class="course-fact-icon">&#128197;</span> 3rd oldest golf course in the world (official, 2025)</div>
+          <div class="course-fact"><span class="course-fact-icon">&#128300;</span> Starter&rsquo;s hut: working Royal Navy periscope (HMS Excalibur)</div>
+        </div>
       </div>
     </div>
 
@@ -908,6 +967,14 @@
           </li>
         </ul>
         <div class="note-box">&#9971; The Jubilee sits wedged between the sea and the New Course. Elevated tees give unparalleled views across St Andrews Bay. No shared greens or fairways &mdash; every hole stands on its own.</div>
+
+        <div class="course-detail">
+          <img src="images/st_andrews_hero.jpg" alt="St Andrews Jubilee Course" class="course-img" />
+          <p class="course-desc">Opened in 1897 for Queen Victoria&rsquo;s Diamond Jubilee and completely redesigned to championship standard by Donald Steel in 1988 &mdash; making it the toughest of the seven St. Andrews courses. Wedged between St. Andrews Bay and the New Course, with no shared greens or fairways. Elevated tees give views of the North Sea and West Sands Beach. No double greens, but the same classic out-and-back routing as the Old Course. The most underrated course in St. Andrews &mdash; by a wide margin.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> ~6,800 yards &bull; Championship redesign 1988</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> Toughest of the 7 St. Andrews Links Trust courses</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> Walk from your hotel &mdash; no transport needed</div>
+        </div>
       </div>
     </div>
 
@@ -944,6 +1011,25 @@
           </li>
         </ul>
         <div class="note-box">&#127922; Old Course ballot is not guaranteed. If it doesn&rsquo;t come through, the group can still walk the course freely, cross the Swilcan Bridge, and get every photo you want &mdash; the course is public right-of-way on Sundays and when not in play.</div>
+
+        <div class="course-detail">
+          <img src="images/st_andrews_hero.jpg" alt="St Andrews Links aerial view" class="course-img" />
+          <p class="course-desc">Golf has been played here since the early 15th century, making it the oldest course on earth. Originally 22 holes, standardized to 18 in 1764 &mdash; the format the whole world now uses. Seven iconic double greens. The 17th (Road Hole) is the most feared par 4 in championship golf. Hell Bunker covers 300 square yards. The Swilcan Bridge is 700 years old. Bobby Jones. Jack Nicklaus. Tiger Woods. Thirty Open Championships and counting. This is the one.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#128197;</span> Golf played here since the early 1400s &bull; Par 72 &bull; 7,305 yards</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> 30 Open Championships &mdash; more than any other course on earth</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127966;</span> 7 double greens &bull; 110 named bunkers &bull; Swilcan Bridge (700 yrs old) &bull; Hell Bunker: 300 sq yards</div>
+          <div class="note-box" style="margin-top:0.75rem;">&#127922; The ballot draw happens the evening before &mdash; enter the daily ballot via the St. Andrews Links Trust portal. Old Course green fees are paid directly on the day of play (not prepaid with the package). Even without a tee time, the course is open for walking on Sundays &mdash; cross the Swilcan Bridge and stand in the Valley of Sin.</div>
+          <p class="course-photo-credit">Photo: Bahnfrend via Wikimedia Commons (CC-BY-SA 4.0)</p>
+        </div>
+
+        <div class="course-detail">
+          <img src="images/lundin.jpg" alt="Lundin Golf Club, Fife" class="course-img" />
+          <p class="course-desc">Founded 1868, designed by Old Tom Morris and later upgraded by James Braid. A former Open Championship qualifying venue along the shores of Largo Bay in Fife. Par 75, 6,371 yards. The 14th hole (&ldquo;Perfection&rdquo;) is a downhill par 3 with panoramic views of the Firth of Forth &mdash; from the 14th tee you can see every other tee and green on the course. Adjacent to the oldest women&rsquo;s golf course in the world (1890), with prehistoric Standing Stones on the second hole dating to 2000 BC.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Par 75 &bull; 6,371 yards &bull; Founded 1868</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> Former Open Championship Final Qualifying venue</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> 14th (Perfection): panoramic Firth of Forth par 3</div>
+          <p class="course-photo-credit">Photo: Richard Webb via Wikimedia Commons (CC-BY-SA 2.0)</p>
+        </div>
       </div>
     </div>
 
@@ -979,6 +1065,14 @@
             <span><span class="tag tag-hotel">Hotel</span> Greyfriars / Lorimer House / Nethan (last night)</span>
           </li>
         </ul>
+
+        <div class="course-detail">
+          <img src="images/crail_balcomie.jpg" alt="Dumbarnie Links, Fife" class="course-img" />
+          <p class="course-desc">The newest course on the tour &mdash; opened spring 2020 on the 5,000-acre Balcarres Estate and immediately earned its place among Scotland&rsquo;s best. Designed by Clive Clark with wide fairways, elevated tees, and coastal holes along Largo Bay that rivals Pebble Beach in scale and drama. Three driveable par 4s add variety. The 10th hole was redesigned in 2025 based on player feedback. Host of the 2025 Women&rsquo;s Scottish Open.</p>
+          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Opened 2020 &bull; Clive Clark design</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> &ldquo;Top Emerging Golf Course&rdquo; UK &bull; 2025 Women&rsquo;s Scottish Open host</div>
+          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> Holes 4, 9, 10, 13, 14 set along Largo Bay</div>
+        </div>
       </div>
     </div>
 
@@ -990,6 +1084,7 @@
         <span class="day-date">Sun, Jun 21</span>
       </div>
       <div class="day-body">
+        <div class="flight-box">&#128748;&#65039; <strong>UA #119 &mdash; Depart Edinburgh Airport 11:30 AM, Sun Jun 21</strong></div>
         <p>Check out by 10am. Transfer to Edinburgh Airport for the flight home. The clubs go back in the bags &mdash; the memories don&rsquo;t.</p>
         <div class="phone-box">&#128222; <strong>Driver: Club Cars &mdash; +44 (0)1334 479900.</strong> Airport transfer to Edinburgh.</div>
         <ul class="event-list">
@@ -1006,134 +1101,6 @@
       </div>
     </div>
 
-  </section>
-
-  <!-- ===== COURSES ===== -->
-  <section id="courses">
-    <div class="section-header">
-      <h2>The Courses</h2>
-      <div class="divider"></div>
-      <p>Eight rounds across some of the most storied links in the world &mdash; from Ayrshire to the Kingdom of Fife.</p>
-    </div>
-
-    <div class="course-grid">
-
-      <!-- Prestwick -->
-      <div class="course-card">
-        <img src="images/crail_balcomie.jpg" alt="Prestwick Golf Club, Ayrshire" class="course-img" />
-        <div class="course-body">
-          <span class="course-badge">Round 1 &mdash; Jun 14</span>
-          <div class="course-name">Prestwick Golf Club</div>
-          <div class="course-location">&#128205; Prestwick, Ayrshire &bull; Tee time: 3:36 PM</div>
-          <p class="course-desc">The birthplace of The Open Championship. The first Open was contested here in 1860 &mdash; eight players, 36 holes, a red Morocco belt as the prize. Old Tom Morris designed the original 12-hole course with little more than a wheelbarrow and a shovel. Six of those original greens are still in use today. Famous for blind shots over towering dunes and cavernous bunkers with no sight of the green.</p>
-          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Classic links &bull; Founded 1851</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> Hosted the first 12 Open Championships consecutively (1860&ndash;1872)</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> Notable holes: 1st (Railway), 3rd (Cardinal), 5th (Himalayas), 17th (Alps)</div>
-        </div>
-      </div>
-
-      <!-- Royal Troon -->
-      <div class="course-card">
-        <img src="images/elie.jpg" alt="Royal Troon Golf Club" class="course-img" />
-        <div class="course-body">
-          <span class="course-badge">Round 2 &mdash; Jun 15</span>
-          <div class="course-name">Royal Troon</div>
-          <div class="course-location">&#128205; Troon, Ayrshire &bull; Tee time: 3:20 PM</div>
-          <p class="course-desc">Established 1878. Eleven Open Championships. The iconic Postage Stamp (8th) &mdash; 123 yards, a tiny green, and a history of wrecked scorecards. The Railway (11th) runs parallel to an actual railway line. The 6th hole is the longest par 5 in Open history at 623 yards. Royal charter granted 1978. Par 71, 7,175 yards, shaped by Willie Fernie, James Braid, and Alister MacKenzie.</p>
-          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Par 71 &bull; 7,175 yards</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> 11 Open Championships, most recent 2024</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> Postage Stamp (8th): 123 yards &mdash; most famous short par 3 in golf</div>
-        </div>
-      </div>
-
-      <!-- Turnberry Ailsa -->
-      <div class="course-card">
-        <img src="images/lundin.jpg" alt="Turnberry Ailsa Course" class="course-img" />
-        <div class="course-body">
-          <span class="course-badge">Round 3 &mdash; Jun 16</span>
-          <div class="course-name">Turnberry Ailsa Course</div>
-          <div class="course-location">&#128205; Turnberry, Ayrshire &bull; Tee time: 10:31 AM (Resident)</div>
-          <p class="course-desc">Four Open Championships and one of the most dramatic coastlines in golf. Holes 4&ndash;11 hug the Firth of Clyde with sweeping views to Ailsa Craig and the Isle of Arran. The 9th (Bruce&rsquo;s Castle) plays from a rocky headland directly toward the Turnberry Lighthouse &mdash; sheer drop to the rocks below the green. Redesigned in 2016 by Martin Ebert, with further enhancements in 2025. Venue of the legendary 1977 &ldquo;Duel in the Sun.&rdquo;</p>
-          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Links &bull; 4 Open Championships</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> 1977 &ldquo;Duel in the Sun&rdquo; &mdash; Nicklaus vs. Watson</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> Hole 9 (Bruce&rsquo;s Castle): lighthouse par 3 &mdash; sea directly behind the green</div>
-        </div>
-      </div>
-
-      <!-- Elie -->
-      <div class="course-card">
-        <img src="images/st_andrews_golfers.jpg" alt="Golf House Club Elie" class="course-img" />
-        <div class="course-body">
-          <span class="course-badge">Round 4 &mdash; Jun 17</span>
-          <div class="course-name">Golf House Club, Elie</div>
-          <div class="course-location">&#128205; Elie, Fife &bull; Tee time: 12:00 PM</div>
-          <p class="course-desc">Golf has been played on the Elie links since the 15th century. The current Old Tom Morris layout (1895) is unchanged &mdash; making it one of the purest links experiences in Scotland. Famous for 8 front-to-back sloped greens, 16 par 4s and 2 par 3s, four dramatic sea views, and the oldest clubhouse in active use (1875). In 2025 it was officially recognized as the third oldest golf course in the world. And yes &mdash; there&rsquo;s a real submarine periscope in the starter&rsquo;s hut.</p>
-          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Par 70 &bull; 6,273 yards &bull; Old Tom Morris (1895)</div>
-          <div class="course-fact"><span class="course-fact-icon">&#128197;</span> 3rd oldest golf course in the world (official, 2025)</div>
-          <div class="course-fact"><span class="course-fact-icon">&#128300;</span> Starter&rsquo;s hut: working Royal Navy periscope (HMS Excalibur)</div>
-        </div>
-      </div>
-
-      <!-- Jubilee -->
-      <div class="course-card">
-        <img src="images/st_andrews_hero.jpg" alt="St Andrews Jubilee Course" class="course-img" />
-        <div class="course-body">
-          <span class="course-badge">Round 5 &mdash; Jun 18</span>
-          <div class="course-name">St. Andrews Jubilee Course</div>
-          <div class="course-location">&#128205; St. Andrews, Fife &bull; Tee time: 2:32 PM</div>
-          <p class="course-desc">Opened in 1897 for Queen Victoria&rsquo;s Diamond Jubilee and completely redesigned to championship standard by Donald Steel in 1988 &mdash; making it the toughest of the seven St. Andrews courses. Wedged between St. Andrews Bay and the New Course, with no shared greens or fairways. Elevated tees give views of the North Sea and West Sands Beach. No double greens, but the same classic out-and-back routing as the Old Course. The most underrated course in St. Andrews &mdash; by a wide margin.</p>
-          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> ~6,800 yards &bull; Championship redesign 1988</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> Toughest of the 7 St. Andrews Links Trust courses</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> Walk from your hotel &mdash; no transport needed</div>
-        </div>
-      </div>
-
-      <!-- Lundin -->
-      <div class="course-card">
-        <img src="images/lundin.jpg" alt="Lundin Golf Club, Fife" class="course-img" />
-        <div class="course-body">
-          <span class="course-badge">Round 6 &mdash; Jun 19</span>
-          <div class="course-name">Lundin Golf Club</div>
-          <div class="course-location">&#128205; Lundin Links, Fife &bull; Tee time: 12:20 PM</div>
-          <p class="course-desc">Founded 1868, designed by Old Tom Morris and later upgraded by James Braid. A former Open Championship qualifying venue along the shores of Largo Bay in Fife. Par 75, 6,371 yards. The 14th hole (&ldquo;Perfection&rdquo;) is a downhill par 3 with panoramic views of the Firth of Forth &mdash; from the 14th tee you can see every other tee and green on the course. Adjacent to the oldest women&rsquo;s golf course in the world (1890), with prehistoric Standing Stones on the second hole dating to 2000 BC.</p>
-          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Par 75 &bull; 6,371 yards &bull; Founded 1868</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> Former Open Championship Final Qualifying venue</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> 14th (Perfection): panoramic Firth of Forth par 3</div>
-          <p class="course-photo-credit">Photo: Richard Webb via Wikimedia Commons (CC-BY-SA 2.0)</p>
-        </div>
-      </div>
-
-      <!-- Dumbarnie -->
-      <div class="course-card">
-        <img src="images/crail_balcomie.jpg" alt="Dumbarnie Links, Fife" class="course-img" />
-        <div class="course-body">
-          <span class="course-badge">Round 7 &mdash; Jun 20</span>
-          <div class="course-name">Dumbarnie Links</div>
-          <div class="course-location">&#128205; Upper Largo, Fife &bull; Tee time: 9:40 AM</div>
-          <p class="course-desc">The newest course on the tour &mdash; opened spring 2020 on the 5,000-acre Balcarres Estate and immediately earned its place among Scotland&rsquo;s best. Designed by Clive Clark with wide fairways, elevated tees, and coastal holes along Largo Bay that rivals Pebble Beach in scale and drama. Three driveable par 4s add variety. The 10th hole was redesigned in 2025 based on player feedback. Host of the 2025 Women&rsquo;s Scottish Open.</p>
-          <div class="course-fact"><span class="course-fact-icon">&#9972;</span> Opened 2020 &bull; Clive Clark design</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> &ldquo;Top Emerging Golf Course&rdquo; UK &bull; 2025 Women&rsquo;s Scottish Open host</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127775;</span> Holes 4, 9, 10, 13, 14 set along Largo Bay</div>
-        </div>
-      </div>
-
-      <!-- Old Course -->
-      <div class="course-card" style="grid-column: 1 / -1;">
-        <img src="images/st_andrews_hero.jpg" alt="St Andrews Links aerial view" class="course-img" style="height: 260px;" />
-        <div class="course-body">
-          <span class="course-badge" style="background:#7ec87f; color:#0a150b;">Round 8 &mdash; Ballot (Jun 19, if drawn)</span>
-          <div class="course-name">The Old Course at St Andrews</div>
-          <div class="course-location">&#128205; St. Andrews, Fife &mdash; Operated by St. Andrews Links Trust</div>
-          <p class="course-desc">Golf has been played here since the early 15th century, making it the oldest course on earth. Originally 22 holes, standardized to 18 in 1764 &mdash; the format the whole world now uses. Seven iconic double greens. The 17th (Road Hole) is the most feared par 4 in championship golf. Hell Bunker covers 300 square yards. The Swilcan Bridge is 700 years old. Bobby Jones. Jack Nicklaus. Tiger Woods. Thirty Open Championships and counting. This is the one.</p>
-          <div class="course-fact"><span class="course-fact-icon">&#128197;</span> Golf played here since the early 1400s &bull; Par 72 &bull; 7,305 yards</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127942;</span> 30 Open Championships &mdash; more than any other course on earth</div>
-          <div class="course-fact"><span class="course-fact-icon">&#127966;</span> 7 double greens &bull; 110 named bunkers &bull; Swilcan Bridge (700 yrs old) &bull; Hell Bunker: 300 sq yards</div>
-          <div class="note-box" style="margin-top:0.75rem;">&#127922; The ballot draw happens the evening before &mdash; enter the daily ballot via the St. Andrews Links Trust portal. Old Course green fees are paid directly on the day of play (not prepaid with the package). Even without a tee time, the course is open for walking on Sundays &mdash; cross the Swilcan Bridge and stand in the Valley of Sin.</div>
-          <p class="course-photo-credit">Photo: Bahnfrend via Wikimedia Commons (CC-BY-SA 4.0)</p>
-        </div>
-      </div>
-
-    </div>
   </section>
 
   <!-- ===== LOGISTICS (REFERENCE) ===== -->
@@ -1293,13 +1260,20 @@
     var startOnly = getLocalDateOnly(TRIP_START_DATE);
     var endOnly   = getLocalDateOnly(TRIP_END_DATE);
 
+    bar.style.display = 'flex';
+
     if (today < startOnly) {
-      // Before trip — hide the bar, countdown handles it
-      bar.style.display = 'none';
+      // Before trip — show countdown to tee-off
+      var msUntil = startOnly - today;
+      var daysUntil = Math.round(msUntil / 86400000);
+      icon.textContent = '✈️';
+      lbl.textContent = 'Countdown';
+      main.textContent = daysUntil + ' day' + (daysUntil === 1 ? '' : 's') + ' until tee-off — June 14, 2026';
+      detail.textContent = 'Prestwick Golf Club awaits. First tee time: 3:36 PM local.';
+      btn.href = '#checklist';
+      btn.innerHTML = 'Prep Checklist ↓';
       return;
     }
-
-    bar.style.display = 'flex';
 
     if (today > endOnly) {
       // After trip
