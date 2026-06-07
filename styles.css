@@ -17,6 +17,7 @@ body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 52px; /* offset for fixed nav */
 }
 
 h1, h2, h3, h4, h5 {
@@ -28,10 +29,12 @@ a:hover { color: #a8e8a9; }
 
 img { max-width: 100%; height: auto; }
 
-/* ===== NAV BAR (sticky, all pages) ===== */
+/* ===== NAV BAR (fixed, all pages) ===== */
 .site-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   background: rgba(8, 14, 8, 0.96);
   backdrop-filter: blur(12px);
@@ -122,6 +125,7 @@ img { max-width: 100%; height: auto; }
 .hero {
   position: relative;
   min-height: 100vh;
+  margin-top: -52px; /* pull hero up behind the fixed nav */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -422,21 +426,31 @@ img { max-width: 100%; height: auto; }
 
 .leaderboard-title-block {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  padding-top: 1rem;
 }
 .leaderboard-title-block .scotland-classic {
   font-family: 'Pinyon Script', cursive;
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-size: clamp(3rem, 7vw, 5rem);
   color: #c9a84c;
   display: block;
-  line-height: 1.2;
-  margin-bottom: 0.2rem;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 16px rgba(201, 168, 76, 0.2);
+  margin-bottom: 0.5rem;
+}
+.scotland-classic-divider {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  margin: 0.5rem auto 0.75rem;
+  border-radius: 2px;
 }
 .leaderboard-title-block .leaderboard-subtitle {
   font-family: 'Inter', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #6a8e6b;
 }
