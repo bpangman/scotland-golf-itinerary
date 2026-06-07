@@ -810,6 +810,8 @@ img { max-width: 100%; height: auto; }
   display: flex;
   gap: 0.5rem;
   line-height: 1.6;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .logistics-card li:last-child { border-bottom: none; }
 .li-dot { color: #c9a84c; flex-shrink: 0; font-size: 0.6rem; padding-top: 0.35rem; }
