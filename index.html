@@ -272,10 +272,10 @@
           img.alt = photo.caption || 'Scotland Trip Photo';
           img.loading = 'lazy';
           slide.appendChild(img);
-          if (photo.contributor || photo.caption) {
+          if (photo.caption) {
             var cap = document.createElement('div');
             cap.className = 'photo-caption';
-            cap.textContent = (photo.caption || '') + (photo.contributor ? (photo.caption ? ' — ' : '') + photo.contributor : '');
+            cap.textContent = photo.caption;
             slide.appendChild(cap);
           }
           inner.appendChild(slide);
