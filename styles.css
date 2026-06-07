@@ -748,17 +748,13 @@ img { max-width: 100%; height: auto; }
   letter-spacing: 0.12em;
 }
 .scorecard-frame {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   border: 1px solid rgba(90, 158, 92, 0.1);
   border-radius: 6px;
 }
 .scorecard-frame iframe {
   width: 100%;
-  min-width: 700px;
   height: 380px;
   border: none;
-  background: #0a0f0a;
 }
 .scorecard-link {
   display: inline-block;
