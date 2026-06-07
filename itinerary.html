@@ -376,5 +376,13 @@
   }
 </script>
 
+<script>
+document.querySelectorAll('.day-header').forEach(function(header) {
+  header.addEventListener('click', function() {
+    this.closest('.day-card').classList.toggle('collapsed');
+  });
+});
+</script>
+
 </body>
 </html>

@@ -179,5 +179,13 @@
   <p>Scotland Classic 2026 &mdash; June 14&ndash;21. Party of 8. Organized by <a href="https://www.hiddenlinksgolf.com" target="_blank">Hidden Links Golf</a>.</p>
 </footer>
 
+<script>
+document.querySelectorAll('.logistics-card h3').forEach(function(header) {
+  header.addEventListener('click', function() {
+    this.closest('.logistics-card').classList.toggle('collapsed');
+  });
+});
+</script>
+
 </body>
 </html>
