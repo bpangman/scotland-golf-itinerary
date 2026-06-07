@@ -185,7 +185,7 @@
     if (today < startOnly) {
       var msUntil = startOnly - today;
       var daysUntil = Math.round(msUntil / 86400000);
-      lbl.textContent = 'Next Up';
+      lbl.innerHTML = 'Next Up <span style="font-weight:400; font-size:0.55rem; color:#6a8e6b; letter-spacing:0.08em;">(updated in real time)</span>';
       main.textContent = daysUntil + ' day' + (daysUntil === 1 ? '' : 's') + ' until tee-off — June 14, 2026';
       detail.textContent = 'Prestwick Golf Club awaits. First tee time: 3:36 PM local.';
       btn.href = 'itinerary.html';
@@ -205,7 +205,7 @@
     var dayInfo = TRIP_DAYS[dayIndex];
     if (!dayInfo) return;
 
-    lbl.textContent = 'Today — ' + dayInfo.label;
+    lbl.innerHTML = 'Today — ' + dayInfo.label + ' <span style="font-weight:400; font-size:0.55rem; color:#6a8e6b; letter-spacing:0.08em;">(updated in real time)</span>';
     main.textContent = dayInfo.desc;
     detail.textContent = dayInfo.detail;
     btn.href = dayInfo.anchor;
