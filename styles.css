@@ -919,6 +919,43 @@ footer p { margin-bottom: 0.4rem; }
 footer a { color: #5a7e5b; }
 footer a:hover { color: #c9a84c; }
 
+/* ===== PHOTO GALLERY ===== */
+.photo-gallery {
+  display: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  border-radius: 10px;
+  border: 1px solid rgba(90, 158, 92, 0.12);
+  background: #0b120c;
+}
+.photo-gallery-inner {
+  display: flex;
+  gap: 0;
+}
+.photo-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+}
+.photo-slide img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: #d4cfc4;
+  font-size: 0.78rem;
+  font-style: italic;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
   .hero-content { padding: 2rem 1.25rem 3rem; }
@@ -947,6 +984,7 @@ footer a:hover { color: #c9a84c; }
   .countdown-unit .num { font-size: 1.8rem; }
 
   .course-detail .course-img { height: 180px; }
+  .photo-slide img { height: 250px; }
 
   .logistics-grid { grid-template-columns: 1fr; }
   .checklist-grid { grid-template-columns: 1fr; }

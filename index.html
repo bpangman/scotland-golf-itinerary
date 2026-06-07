@@ -122,9 +122,13 @@
       <div class="divider"></div>
       <p>Live from the links &mdash; powered by Apple Shared Photo Stream</p>
     </div>
-    <div style="background: linear-gradient(145deg, #0e150f, #0b120c); border: 1px solid rgba(90,158,92,0.12); border-radius: 10px; padding: 2.5rem 1.5rem; text-align: center; color: #5a7e5b; font-size: 0.85rem; font-style: italic;">
-      Photo stream coming soon &mdash; upload photos during the trip and they'll appear here in real time.
+    <div id="photo-gallery" class="photo-gallery">
+      <div class="photo-gallery-inner" id="photo-gallery-inner"></div>
     </div>
+    <div id="photo-empty" style="background: linear-gradient(145deg, #0e150f, #0b120c); border: 1px solid rgba(90,158,92,0.12); border-radius: 10px; padding: 2.5rem 1.5rem; text-align: center; color: #5a7e5b; font-size: 0.85rem; font-style: italic;">
+      Loading photos...
+    </div>
+    <div id="photo-count" style="text-align:center; margin-top:0.75rem; font-size:0.72rem; color:#5a7e5b;"></div>
   </section>
 
   <!-- ===== LEADERBOARD LINK ===== -->
@@ -241,6 +245,49 @@
   updateCountdown();
   updateRightNowBar();
   setInterval(updateCountdown, 1000);
+
+  // ===== PHOTO STREAM =====
+  function loadPhotoStream() {
+    fetch('photos.json?' + Date.now())
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        var gallery = document.getElementById('photo-gallery');
+        var inner = document.getElementById('photo-gallery-inner');
+        var empty = document.getElementById('photo-empty');
+        var countEl = document.getElementById('photo-count');
+        if (!data || !data.photos || data.photos.length === 0) {
+          gallery.style.display = 'none';
+          empty.textContent = 'No photos yet — upload to the shared album and they\'ll appear here automatically.';
+          countEl.textContent = '';
+          return;
+        }
+        empty.style.display = 'none';
+        gallery.style.display = 'block';
+        inner.innerHTML = '';
+        data.photos.forEach(function(photo) {
+          var slide = document.createElement('div');
+          slide.className = 'photo-slide';
+          var img = document.createElement('img');
+          img.src = 'images/stream/' + photo.filename;
+          img.alt = photo.caption || 'Scotland Trip Photo';
+          img.loading = 'lazy';
+          slide.appendChild(img);
+          if (photo.contributor || photo.caption) {
+            var cap = document.createElement('div');
+            cap.className = 'photo-caption';
+            cap.textContent = (photo.caption || '') + (photo.contributor ? (photo.caption ? ' — ' : '') + photo.contributor : '');
+            slide.appendChild(cap);
+          }
+          inner.appendChild(slide);
+        });
+        countEl.textContent = data.photos.length + ' photo' + (data.photos.length === 1 ? '' : 's') + ' — swipe to browse';
+      })
+      .catch(function() {
+        document.getElementById('photo-empty').textContent = 'No photos yet — upload to the shared album and they\'ll appear here automatically.';
+      });
+  }
+  loadPhotoStream();
+  setInterval(loadPhotoStream, 60000);
 </script>
 
 </body>
