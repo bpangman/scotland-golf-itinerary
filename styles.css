@@ -1,0 +1,927 @@
+/* ===================================================================
+   Scotland Classic 2026 — Shared Stylesheet
+   Premium dark theme inspired by Augusta & The Open Championship
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Pinyon+Script&display=swap');
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0a0f0a;
+  color: #d4cfc4;
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+a { color: #7ec87f; text-decoration: none; transition: color 0.2s; }
+a:hover { color: #a8e8a9; }
+
+img { max-width: 100%; height: auto; }
+
+/* ===== NAV BAR (sticky, all pages) ===== */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(8, 14, 8, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(90, 158, 92, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 1rem;
+}
+.site-nav::-webkit-scrollbar { display: none; }
+
+.site-nav .nav-brand {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 1.3rem;
+  color: #c9a84c;
+  padding: 0.75rem 1.2rem 0.75rem 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(90, 158, 92, 0.15);
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.site-nav a:not(.nav-brand) {
+  color: #8aab8b;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 1rem;
+  white-space: nowrap;
+  transition: color 0.2s, border-bottom 0.2s;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:not(.nav-brand):hover {
+  color: #fff;
+  border-bottom-color: #c9a84c;
+}
+.site-nav a:not(.nav-brand).active {
+  color: #c9a84c;
+  border-bottom-color: #c9a84c;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.container-wide {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ===== SECTION HEADERS ===== */
+.section-header {
+  padding: 3.5rem 0 2rem;
+  text-align: center;
+}
+.section-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: #e8e0d0;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+.section-header p {
+  color: #7a8e7b;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+.divider {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  margin: 0.8rem auto;
+  border-radius: 2px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('images/turnberry_hero.jpg') center center / cover no-repeat;
+  filter: brightness(0.45) saturate(0.85);
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, #0a0f0a 0%, transparent 100%);
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 2rem 4rem;
+  max-width: 800px;
+}
+.hero-flag {
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+.hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  text-shadow: 0 3px 20px rgba(0,0,0,0.6);
+  margin-bottom: 1rem;
+}
+.hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: #b8c4b9;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+}
+.hero-sub strong { color: #e8e0d0; }
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.badge {
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: #c9a84c;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  backdrop-filter: blur(4px);
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2rem;
+  z-index: 1;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  animation: bounce 2.5s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ===== HYPE VIDEO ===== */
+.video-section {
+  background: linear-gradient(180deg, #0a0f0a 0%, #0d130d 100%);
+  padding: 2.5rem 1.25rem;
+}
+.video-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.video-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+.video-frame iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* ===== TRIP AT A GLANCE ===== */
+.glance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+}
+.glance-card {
+  background: linear-gradient(145deg, #111a12, #0e150f);
+  border: 1px solid rgba(90, 158, 92, 0.12);
+  border-radius: 10px;
+  padding: 1.2rem 0.8rem;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.glance-card:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+  transform: translateY(-2px);
+}
+.glance-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #c9a84c;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.glance-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #6a8e6b;
+  font-weight: 600;
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown-bar {
+  background: linear-gradient(135deg, #111a12, #162718);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.countdown-bar h3 {
+  color: #c9a84c;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.countdown-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.countdown-unit { text-align: center; }
+.countdown-unit .num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  display: block;
+}
+.countdown-unit .lbl {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #6a8e6b;
+  font-weight: 600;
+}
+
+/* ===== FLIGHTS ===== */
+.flights-section { margin-bottom: 2.5rem; }
+.flights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.flight-card {
+  background: linear-gradient(135deg, rgba(90, 70, 10, 0.15), rgba(90, 70, 10, 0.08));
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 10px;
+  padding: 1.2rem 1.3rem;
+  transition: border-color 0.3s;
+}
+.flight-card:hover { border-color: rgba(201, 168, 76, 0.5); }
+.flight-card-label {
+  font-size: 0.68rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #c9a84c;
+  margin-bottom: 0.4rem;
+}
+.flight-card-main {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f0d898;
+  margin-bottom: 0.25rem;
+}
+.flight-card-detail {
+  font-size: 0.82rem;
+  color: #c4a86a;
+}
+.flights-note {
+  background: rgba(90, 70, 10, 0.08);
+  border-left: 3px solid #c9a84c;
+  padding: 0.75rem 1rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.85rem;
+  color: #c4a86a;
+  line-height: 1.6;
+}
+.flights-note a { color: #f0d898; }
+
+/* ===== RIGHT NOW / NEXT UP BAR ===== */
+#right-now-bar {
+  background: linear-gradient(135deg, #111e13, #162718);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  transition: border-color 0.3s;
+}
+#right-now-bar:hover { border-color: rgba(201, 168, 76, 0.45); }
+.right-now-icon { font-size: 1.6rem; flex-shrink: 0; }
+.right-now-text { flex: 1; min-width: 200px; }
+.right-now-label {
+  font-size: 0.65rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #c9a84c;
+  margin-bottom: 0.2rem;
+}
+.right-now-main {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e8e0d0;
+  line-height: 1.4;
+}
+.right-now-detail {
+  font-size: 0.82rem;
+  color: #8aab8b;
+  margin-top: 0.15rem;
+}
+.right-now-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #2a5a2c, #1e4420);
+  color: #c9a84c;
+  text-decoration: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: all 0.2s;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  cursor: pointer;
+}
+.right-now-btn:hover {
+  background: linear-gradient(135deg, #3a6e3c, #2a5a2c);
+  border-color: #c9a84c;
+  color: #f0d898;
+}
+
+/* ===== LEADERBOARD ===== */
+.leaderboard-section { margin-bottom: 3rem; }
+
+.leaderboard-title-block {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.leaderboard-title-block .scotland-classic {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: #c9a84c;
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+.leaderboard-title-block .leaderboard-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6a8e6b;
+}
+
+.leaderboard-sub { margin-bottom: 2rem; }
+.leaderboard-sub h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #c9a84c;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  padding-left: 0.25rem;
+}
+
+.lb-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.88rem;
+}
+.lb-table thead tr {
+  background: linear-gradient(135deg, #1a3a1c, #0e2810);
+}
+.lb-table thead th {
+  color: #c9a84c;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+  border-bottom: 2px solid rgba(201, 168, 76, 0.2);
+}
+.lb-table thead th:last-child { text-align: center; }
+.lb-table tbody tr {
+  background: #0e150f;
+  border-bottom: 1px solid rgba(90, 158, 92, 0.08);
+  transition: background 0.2s;
+}
+.lb-table tbody tr:hover { background: #132015; }
+.lb-table tbody tr:nth-child(even) { background: #0b120c; }
+.lb-table tbody tr:nth-child(even):hover { background: #132015; }
+.lb-table tbody td {
+  padding: 0.6rem 0.8rem;
+  color: #b8c4b9;
+  min-height: 44px;
+}
+.lb-pos {
+  font-weight: 700;
+  color: #c9a84c;
+  width: 36px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+.lb-name { font-weight: 600; color: #e8e0d0; }
+.lb-score {
+  text-align: center;
+  font-weight: 700;
+  color: #8aab8b;
+  width: 70px;
+  font-family: 'Inter', sans-serif;
+}
+.lb-note {
+  font-size: 0.75rem;
+  color: #5a7e5b;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+.lb-note a { color: #7ec87f; }
+
+.lb-match-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.88rem;
+}
+.lb-match-table thead tr {
+  background: linear-gradient(135deg, #1a2e1a, #0e1e0e);
+}
+.lb-match-table thead th {
+  color: #c9a84c;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+  border-bottom: 2px solid rgba(201, 168, 76, 0.2);
+}
+.lb-match-table tbody tr {
+  background: #0e150f;
+  border-bottom: 1px solid rgba(90, 158, 92, 0.08);
+  transition: background 0.2s;
+}
+.lb-match-table tbody tr:hover { background: #132015; }
+.lb-match-table tbody tr:nth-child(even) { background: #0b120c; }
+.lb-match-table tbody td {
+  padding: 0.6rem 0.8rem;
+  color: #b8c4b9;
+  min-height: 44px;
+}
+.lb-match-status { color: #5a7e5b; font-style: italic; font-size: 0.82rem; }
+
+/* ===== DAY CARDS ===== */
+.day-card {
+  background: linear-gradient(145deg, #0e150f, #0b120c);
+  border: 1px solid rgba(90, 158, 92, 0.1);
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.day-card:hover {
+  border-color: rgba(90, 158, 92, 0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.day-card.today-highlight {
+  border-color: #c9a84c;
+  box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.3), 0 4px 24px rgba(201, 168, 76, 0.1);
+}
+.day-header {
+  background: linear-gradient(135deg, #111e13, #162718);
+  padding: 1rem 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+.day-header:hover { background: linear-gradient(135deg, #152218, #1a2e1c); }
+.day-label {
+  background: linear-gradient(135deg, #2a5a2c, #1e4420);
+  color: #c9a84c;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+}
+.day-title {
+  flex: 1;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1rem;
+  color: #e8e0d0;
+  font-weight: 700;
+}
+.day-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #6a8e6b;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.day-body { padding: 1.25rem 1.3rem; }
+.day-body p {
+  color: #a8b4a9;
+  margin-bottom: 0.75rem;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.event-list {
+  list-style: none;
+  margin: 0.5rem 0 1rem;
+}
+.event-list li {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  font-size: 0.88rem;
+  color: #a8b4a9;
+  line-height: 1.6;
+}
+.event-list li:last-child { border-bottom: none; }
+.event-time {
+  color: #c9a84c;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 78px;
+  font-size: 0.78rem;
+  padding-top: 0.06rem;
+}
+.tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.45rem;
+  border-radius: 3px;
+  margin-right: 0.35rem;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.tag-golf     { background: rgba(90, 158, 92, 0.15); color: #7ec87f; border: 1px solid rgba(90, 158, 92, 0.2); }
+.tag-hotel    { background: rgba(78, 138, 200, 0.12); color: #7eb8e8; border: 1px solid rgba(78, 138, 200, 0.15); }
+.tag-travel   { background: rgba(201, 168, 76, 0.1); color: #c9a84c; border: 1px solid rgba(201, 168, 76, 0.15); }
+.tag-dinner   { background: rgba(200, 100, 140, 0.1); color: #e87eb8; border: 1px solid rgba(200, 100, 140, 0.12); }
+.tag-explore  { background: rgba(140, 100, 200, 0.1); color: #b87ee8; border: 1px solid rgba(140, 100, 200, 0.12); }
+.tag-phone    { background: rgba(100, 180, 200, 0.1); color: #7ed4e8; border: 1px solid rgba(100, 180, 200, 0.12); }
+
+/* Note / phone / flight boxes */
+.note-box {
+  background: rgba(90, 158, 92, 0.06);
+  border-left: 3px solid rgba(90, 158, 92, 0.4);
+  padding: 0.7rem 1rem;
+  margin: 0.75rem 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+  color: #8aab8b;
+  line-height: 1.6;
+}
+.phone-box {
+  background: rgba(78, 138, 200, 0.08);
+  border-left: 3px solid rgba(78, 158, 200, 0.4);
+  padding: 0.6rem 1rem;
+  margin: 0.75rem 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+  color: #8ab4d4;
+  line-height: 1.6;
+}
+.phone-box strong { color: #a8d0e8; }
+.flight-box {
+  background: rgba(201, 168, 76, 0.06);
+  border-left: 3px solid rgba(201, 168, 76, 0.4);
+  padding: 0.6rem 1rem;
+  margin: 0.75rem 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+  color: #c4a86a;
+}
+.flight-box strong { color: #f0d898; }
+
+/* ===== COURSE DETAIL (inside day cards) ===== */
+.course-detail {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(90, 158, 92, 0.08);
+}
+.course-detail .course-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.9rem;
+  display: block;
+}
+.course-detail .course-desc {
+  font-size: 0.88rem;
+  color: #a8b4a9;
+  line-height: 1.7;
+  margin-bottom: 0.6rem;
+}
+.course-fact {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: #6a8e6b;
+  margin-bottom: 0.2rem;
+}
+.course-fact-icon { color: #c9a84c; }
+.course-photo-credit {
+  font-size: 0.62rem;
+  color: #3a5e3b;
+  margin-top: 0.6rem;
+  font-style: italic;
+}
+
+/* ===== SCORECARD EMBED ===== */
+.scorecard-embed {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(90, 158, 92, 0.08);
+}
+.scorecard-label {
+  font-size: 0.68rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: #6a8e6b;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.scorecard-frame {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid rgba(90, 158, 92, 0.1);
+  border-radius: 6px;
+}
+.scorecard-frame iframe {
+  width: 100%;
+  min-width: 700px;
+  height: 380px;
+  border: none;
+  background: #0a0f0a;
+}
+.scorecard-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  color: #5a7e5b;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.scorecard-link:hover { color: #c9a84c; }
+
+/* ===== LOGISTICS GRID ===== */
+.logistics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.logistics-card {
+  background: linear-gradient(145deg, #0e150f, #0b120c);
+  border: 1px solid rgba(90, 158, 92, 0.1);
+  border-radius: 10px;
+  padding: 1.2rem;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.logistics-card:hover {
+  border-color: rgba(201, 168, 76, 0.2);
+  transform: translateY(-2px);
+}
+.logistics-card h3 {
+  color: #c9a84c;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.logistics-card ul { list-style: none; }
+.logistics-card li {
+  font-size: 0.85rem;
+  color: #a8b4a9;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  gap: 0.5rem;
+  line-height: 1.6;
+}
+.logistics-card li:last-child { border-bottom: none; }
+.li-dot { color: #c9a84c; flex-shrink: 0; font-size: 0.6rem; padding-top: 0.35rem; }
+
+/* ===== CHECKLIST ===== */
+.checklist {
+  background: linear-gradient(145deg, #0e150f, #0b120c);
+  border: 1px solid rgba(90, 158, 92, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.checklist h3 {
+  color: #e8e0d0;
+  font-family: 'Playfair Display', Georgia, serif;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.4rem;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: #a8b4a9;
+  padding: 0.4rem 0.3rem;
+  border-radius: 4px;
+  transition: background 0.15s;
+  line-height: 1.5;
+}
+.checklist-item:hover { background: rgba(90, 158, 92, 0.04); }
+.check-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(201, 168, 76, 0.3);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.check-box:hover {
+  border-color: #c9a84c;
+  background: rgba(201, 168, 76, 0.1);
+}
+.check-box.checked {
+  background: #2a5a2c;
+  border-color: #5a9e5c;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #060a06;
+  border-top: 1px solid rgba(90, 158, 92, 0.08);
+  text-align: center;
+  padding: 2.5rem 1.25rem;
+  font-size: 0.72rem;
+  color: #3a5e3b;
+}
+footer p { margin-bottom: 0.4rem; }
+footer a { color: #5a7e5b; }
+footer a:hover { color: #c9a84c; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .hero-content { padding: 2rem 1.25rem 3rem; }
+  .hero h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+  .hero-flag { font-size: 0.95rem; }
+
+  .site-nav { justify-content: flex-start; }
+  .site-nav .nav-brand { font-size: 1.1rem; padding: 0.7rem 0.8rem 0.7rem 0; }
+  .site-nav a:not(.nav-brand) {
+    padding: 0.8rem 0.7rem;
+    font-size: 0.68rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .section-header { padding: 2.5rem 0 1.25rem; }
+
+  .day-header { flex-wrap: wrap; }
+  .day-date { width: 100%; margin-top: 0.2rem; }
+  .day-body { padding: 1rem; }
+  .event-time { min-width: 64px; font-size: 0.72rem; }
+  .day-card { margin-bottom: 1rem; }
+
+  .countdown-numbers { gap: 0.8rem; }
+  .countdown-unit .num { font-size: 1.8rem; }
+
+  .course-detail .course-img { height: 180px; }
+
+  .logistics-grid { grid-template-columns: 1fr; }
+  .checklist-grid { grid-template-columns: 1fr; }
+  .glance-grid { grid-template-columns: repeat(2, 1fr); }
+
+  #right-now-bar { flex-direction: column; align-items: flex-start; }
+
+  .flights-grid { grid-template-columns: 1fr; }
+
+  .lb-table tbody td, .lb-match-table tbody td { min-height: 44px; padding: 0.65rem 0.6rem; }
+
+  .scorecard-frame iframe { min-width: 600px; height: 280px; }
+
+  a[href$=".pdf"] {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    background: rgba(201, 168, 76, 0.08);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    min-height: 44px;
+    line-height: 1.8;
+  }
+
+  .logistics-card a, .note-box a {
+    display: inline-block;
+    min-height: 44px;
+    line-height: 2;
+    padding: 0 0.25rem;
+  }
+}

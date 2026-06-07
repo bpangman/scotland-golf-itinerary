@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre-Trip Checklist &mdash; Scotland Classic 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Scotland Classic</a>
+  <a href="index.html">Home</a>
+  <a href="checklist.html" class="active">Checklist</a>
+  <a href="logistics.html">Logistics</a>
+  <a href="itinerary.html">Itinerary</a>
+</nav>
+
+<div class="container">
+
+  <section>
+    <div class="section-header">
+      <h2>Pre-Trip Checklist</h2>
+      <div class="divider"></div>
+      <p>Everything to handle before June 14th</p>
+    </div>
+
+    <div class="checklist">
+      <h3>Don't Forget Before You Go</h3>
+      <div class="checklist-grid">
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>Passport valid &mdash; must not expire within 6 months of return date</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>UK ETA (Electronic Travel Authorization) completed &mdash; apply at <a href="https://www.gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta" target="_blank">gov.uk</a> before you travel</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>ETA &amp; United app: scan passport, upload ETA to United app</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>International phone plan activated with your carrier</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>Credit card confirmed with no international transaction fees</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>British Pound Sterling secured for caddies, tips, and small purchases</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>Rain gear packed (jacket + pants &mdash; quick on/off is key)</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>Golf clubs &mdash; shipped ahead or packed for check-in</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>UK plug adapter (240V, 3-prong) packed</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>Read the full Travel Plans PDF &mdash; check the hot links inside</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>Enter Old Course ballot via St. Andrews Links Trust portal</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>Google Photos: confirm access to shared folder</span></div>
+        <div class="checklist-item"><div class="check-box" tabindex="0" role="checkbox" aria-checked="false"></div><span>Book dinner reservations ASAP via Hidden Links portal recommendations</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Scotland Classic 2026 &mdash; June 14&ndash;21. Party of 8. Organized by <a href="https://www.hiddenlinksgolf.com" target="_blank">Hidden Links Golf</a>.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.check-box').forEach(function(box) {
+    function toggle() {
+      var isChecked = box.classList.toggle('checked');
+      box.setAttribute('aria-checked', isChecked);
+      if (isChecked) {
+        box.innerHTML = '<svg viewBox="0 0 18 18" width="14" height="14"><polyline points="3,9 7,13 15,5" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      } else {
+        box.innerHTML = '';
+      }
+    }
+    box.addEventListener('click', toggle);
+    box.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  });
+</script>
+
+</body>
+</html>
