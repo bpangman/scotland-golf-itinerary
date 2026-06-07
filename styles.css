@@ -811,6 +811,10 @@ img { max-width: 100%; height: auto; }
 }
 .logistics-card li:last-child { border-bottom: none; }
 .li-dot { color: #c9a84c; flex-shrink: 0; font-size: 0.6rem; padding-top: 0.35rem; }
+.logistics-card li > span,
+.logistics-card li > div {
+  min-width: 0;
+}
 
 /* ===== CHECKLIST ===== */
 .checklist {
