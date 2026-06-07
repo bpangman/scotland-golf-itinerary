@@ -768,19 +768,15 @@ img { max-width: 100%; height: auto; }
 .scorecard-link:hover { color: #c9a84c; }
 
 /* ===== COLLAPSIBLE SECTIONS ===== */
-.day-card .day-header {
-  position: relative;
-}
-.day-header::after {
-  content: '▾';
+.day-title::after {
+  content: ' ▾';
   color: #6a8e6b;
-  font-size: 0.9rem;
-  transition: transform 0.3s;
-  margin-left: auto;
-  padding-left: 0.5rem;
+  font-size: 0.75rem;
+  transition: transform 0.2s;
+  display: inline;
 }
-.day-card.collapsed .day-header::after {
-  transform: rotate(-90deg);
+.day-card.collapsed .day-title::after {
+  content: ' ▸';
 }
 .day-card.collapsed .day-body {
   display: none;
@@ -792,12 +788,13 @@ img { max-width: 100%; height: auto; }
 .logistics-card h3::after {
   content: '▾';
   color: #6a8e6b;
-  font-size: 0.75rem;
-  transition: transform 0.3s;
-  margin-left: auto;
+  font-size: 0.65rem;
+  transition: transform 0.2s;
+  margin-left: 0.4rem;
+  flex-shrink: 0;
 }
 .logistics-card.collapsed h3::after {
-  transform: rotate(-90deg);
+  content: '▸';
 }
 .logistics-card.collapsed ul,
 .logistics-card.collapsed .flights-section {
